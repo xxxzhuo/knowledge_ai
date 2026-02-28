@@ -4,22 +4,45 @@
 
 ## 🎯 项目特点
 
+- **完整 RAG Chain**: Retriever + LCEL + Rerank 完整实现
+- **本地化部署**: Ollama (qwen2.5) + embeddinggemma，零 API 成本
 - **大厂级架构**: 分层设计 + 解耦 + 可扩展
-- **LangChain 1.0**: 最新API标准 + LCEL
-- **Hybrid Search**: BM25 + Vector混合检索
-- **工业级指标**: 可观测性、缓存、监控
+- **LangChain 1.0**: 最新 LCEL + 流式输出支持
+- **智能重排序**: Simple / CrossEncoder / Hybrid 三种策略
+- **工业级指标**: 可观测性、监控完善
 - **容器化部署**: Docker + Docker Compose
+
+## ✨ 核心功能
+
+### 🔍 RAG 检索增强生成
+- ✅ 向量检索 (Milvus + 768维 embeddinggemma)
+- ✅ 智能重排序 (3种策略可选)
+- ✅ LCEL 声明式链路
+- ✅ 流式 + 异步支持
+- ✅ 多轮对话
+
+### 📚 文档处理
+- ✅ PDF、图片、表格多格式支持
+- ✅ 智能分块 (半导体领域定制)
+- ✅ 向量化存储
+
+### 🤖 LLM 集成
+- ✅ Ollama 本地推理 (qwen2.5:7b)
+- ✅ OpenAI 兼容
+- ✅ 多种 Prompt 模板
 
 ## 📦 技术栈
 
-| 层级 | 技术 |
-|------|------|
-| API | FastAPI |
-| LLM框架 | LangChain 1.0 |
-| 向量库 | Milvus / FAISS |
-| 数据库 | PostgreSQL |
-| 存储 | S3 / MinIO |
-| 监控 | Prometheus + Grafana |
+| 层级 | 技术 | 说明 |
+|------|------|------|
+| API | FastAPI | 高性能异步框架 |
+| LLM | Ollama (qwen2.5:7b) | 本地大语言模型 |
+| Embedding | embeddinggemma | 本地向量化 (768维) |
+| RAG框架 | LangChain 1.0 + LCEL | 声明式链路构建 |
+| 向量库 | Milvus 2.3.11 | 高性能向量检索 |
+| 数据库 | PostgreSQL | 元数据存储 |
+| 重排序 | Hybrid Reranker | 多策略融合 |
+| 部署 | Docker Compose | 容器化编排 |
 
 ## 🚀 快速开始
 

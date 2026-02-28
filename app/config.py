@@ -25,6 +25,9 @@ class Settings(BaseSettings):
     openai_api_key: str = ""
     openai_model: str = "gpt-4"
     
+    # Ollama LLM 配置
+    ollama_llm_model: str = "qwen2.5:7b"
+    
     # Embedding 服务配置
     embedding_service: Literal["openai", "ollama"] = "ollama"  # 选择 embedding 服务
     
@@ -35,6 +38,14 @@ class Settings(BaseSettings):
     # Ollama Embedding 配置
     ollama_host: str = "http://localhost:11434"
     ollama_embedding_model: str = "embeddinggemma"
+    
+    # RAG 配置
+    rag_llm_type: Literal["openai", "ollama"] = "ollama"
+    rag_temperature: float = 0.1
+    rag_top_k: int = 5
+    rag_reranker_type: Literal["simple", "cross_encoder", "hybrid"] = "simple"
+    rag_prompt_type: str = "default"
+    rag_min_similarity: float = 0.3
 
     # 向量库配置
     vector_store_type: Literal["faiss", "milvus", "pgvector"] = "milvus"
