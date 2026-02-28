@@ -7,7 +7,7 @@ from fastapi.responses import JSONResponse
 
 from app.config import get_settings
 from app.database import init_db
-from app.api import health, documents, rag, processing
+from app.api import health, documents, rag, processing, agent
 
 settings = get_settings()
 
@@ -46,6 +46,7 @@ def create_app() -> FastAPI:
     app.include_router(documents.router, prefix="/api/v1", tags=["Documents"])
     app.include_router(rag.router, prefix="/api/v1", tags=["RAG"])
     app.include_router(processing.router, tags=["Document Processing"])
+    app.include_router(agent.router, prefix="/api/v1", tags=["Agent"])
     
     # 异常处理器
     @app.exception_handler(Exception)

@@ -158,7 +158,6 @@ class DocumentProcessor:
         file_path = Path(file_path)
 
         # 第1步：加载文档
-        logger.info(f"开始处理文档: {file_path.name}")
         loaded_doc = self._load_document(file_path)
 
         # 第2步：提取表格和图片
@@ -177,8 +176,6 @@ class DocumentProcessor:
 
         # 第6步：向量化处理（如果启用）
         if self.enable_embedding and self.embedding_service and self.vector_store:
-            logger.info(f"开始对 {len(chunks_data)} 个分块进行向量化")
-            
             # 提取分块内容
             chunk_texts = [chunk['content'] for chunk in chunks_data]
             
@@ -205,8 +202,6 @@ class DocumentProcessor:
             # 将向量 ID 添加到分块数据中
             for i, vector_id in enumerate(vector_ids):
                 chunks_data[i]['vector_id'] = vector_id
-            
-            logger.info("向量化处理完成")
 
         logger.info(
             f"文档处理完成: {file_path.name} "
@@ -306,12 +301,12 @@ class DocumentProcessor:
                     "csv_file": table_item.get("csv_file"),
                 }
                 tables.append(table)
-            
-            logger.info(f"提取到 {len(tables)} 个表格")
-            return tables
+        
         except Exception as e:
             logger.warning(f"表格提取失败: {str(e)}")
             return []
+        
+        return tables
 
     def _extract_images(self, file_path: Path) -> List[Dict[str, Any]]:
         """
@@ -339,12 +334,12 @@ class DocumentProcessor:
                     "file": image_item.get("file"),
                 }
                 images.append(image)
-            
-            logger.info(f"提取到 {len(images)} 个图片")
-            return images
+        
         except Exception as e:
             logger.warning(f"图片提取失败: {str(e)}")
             return []
+        
+        return images
 
     def _prepare_metadata(self, loaded_doc: LoadedDocument) -> Dict[str, Any]:
         """

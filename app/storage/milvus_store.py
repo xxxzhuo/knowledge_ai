@@ -55,7 +55,7 @@ class MilvusStore(VectorStore):
         # 创建或加载集合
         self._create_collection()
         
-        logger.info(f"初始化 Milvus 向量存储，集合: {self.collection_name}")
+        logger.debug(f"初始化 Milvus 向量存储，集合: {self.collection_name}")
 
     def _connect_with_retry(self):
         """
@@ -73,11 +73,9 @@ class MilvusStore(VectorStore):
                         port=self.port,
                         timeout=30
                     )
-                    logger.info(f"成功连接到 Milvus: {self.host}:{self.port}")
                 else:
                     # 验证现有连接是否有效
                     self._check_connection()
-                    logger.info(f"复用现有 Milvus 连接: {self.host}:{self.port}")
                 return
             except Exception as e:
                 last_exception = e
@@ -126,7 +124,6 @@ class MilvusStore(VectorStore):
             if utility.has_collection(self.collection_name, using=_connection_alias):
                 # 加载集合
                 self.collection = Collection(name=self.collection_name, using=_connection_alias)
-                logger.info(f"加载现有集合: {self.collection_name}")
             else:
                 # 创建集合
                 self.collection = Collection(
@@ -134,7 +131,6 @@ class MilvusStore(VectorStore):
                     schema=schema,
                     using=_connection_alias
                 )
-                logger.info(f"创建新集合: {self.collection_name}")
                 
                 # 创建索引
                 index_params = {
@@ -147,14 +143,11 @@ class MilvusStore(VectorStore):
                     index_params=index_params,
                     using=_connection_alias
                 )
-                logger.info("创建向量索引成功")
             
             # 加载集合到内存
             if not self.collection.is_empty:
                 self.collection.load(using=_connection_alias)
-            else:
-                logger.debug(f"集合 {self.collection_name} 为空，跳过加载")
-                
+            
         except MilvusException as e:
             logger.error(f"Milvus 异常: {str(e)}")
             raise
@@ -229,7 +222,7 @@ class MilvusStore(VectorStore):
                 if "loaded" not in str(e).lower():
                     raise
             
-            logger.info(f"成功插入 {len(embeddings)} 个向量，IDs: {ids[0]}...")
+            logger.debug(f"成功插入 {len(embeddings)} 个向量")
             return ids
         except ValueError as e:
             logger.error(f"输入验证失败: {str(e)}")

@@ -141,7 +141,7 @@ async def process_document(
 
             processing_time = time.time() - start_time
 
-            logger.info(
+            logger.debug(
                 f"文档处理成功: {file.filename}, "
                 f"耗时: {processing_time:.2f}s, "
                 f"分块: {processed_doc.total_chunks}, "
@@ -325,9 +325,7 @@ def _validate_file(file: UploadFile) -> None:
             f"支持的格式: {', '.join(ALLOWED_EXTENSIONS)}"
         )
 
-    # 检查文件大小（需要先读取）
-    # 实际检查应该在 UploadFile 读取时进行
-    logger.info(f"文件验证通过: {file.filename}")
+
 
 
 async def _save_temp_file(file: UploadFile, temp_dir: str) -> Path:
@@ -355,7 +353,6 @@ async def _save_temp_file(file: UploadFile, temp_dir: str) -> Path:
         with open(temp_path, 'wb') as f:
             f.write(contents)
 
-        logger.info(f"文件已保存到临时位置: {temp_path}")
         return temp_path
 
     except Exception as e:
@@ -431,7 +428,6 @@ def _save_to_database(
         # 提交事务
         db.commit()
 
-        logger.info(f"文档已保存到数据库: {doc_id}")
         return doc_id
 
     except Exception as e:

@@ -98,7 +98,7 @@ class RAGChain:
         # 构建 LCEL chain
         self._build_chain()
         
-        logger.info(
+        logger.debug(
             f"初始化 RAG Chain - "
             f"LLM: {llm_type}, "
             f"Prompt: {prompt_type}, "
@@ -113,11 +113,9 @@ class RAGChain:
             """检索并重排序"""
             # 1. 向量检索
             docs = self.retriever.retrieve(query, k=self.top_k * 2)
-            logger.debug(f"检索到 {len(docs)} 个文档")
             
             # 2. 重排序
             reranked = self.reranker.rerank(query, docs, self.top_k)
-            logger.debug(f"重排序后保留 {len(reranked)} 个文档")
             
             return reranked
         
@@ -181,7 +179,6 @@ class RAGChain:
                 # 直接传入问题
                 result = self.chain.invoke(query)
             
-            logger.info(f"RAG 查询完成: {query[:50]}...")
             return result
             
         except Exception as e:
@@ -208,7 +205,6 @@ class RAGChain:
             else:
                 result = await self.chain.ainvoke(query)
             
-            logger.info(f"异步 RAG 查询完成: {query[:50]}...")
             return result
             
         except Exception as e:
@@ -237,7 +233,7 @@ class RAGChain:
                 for chunk in self.chain.stream(query):
                     yield chunk
             
-            logger.info(f"流式 RAG 查询完成: {query[:50]}...")
+
             
         except Exception as e:
             logger.error(f"流式 RAG 查询失败: {str(e)}", exc_info=True)
@@ -265,7 +261,7 @@ class RAGChain:
                 async for chunk in self.chain.astream(query):
                     yield chunk
             
-            logger.info(f"异步流式 RAG 查询完成: {query[:50]}...")
+
             
         except Exception as e:
             logger.error(f"异步流式 RAG 查询失败: {str(e)}", exc_info=True)
@@ -288,7 +284,6 @@ class RAGChain:
             # 重排序
             reranked = self.reranker.rerank(query, docs, self.top_k)
             
-            logger.info(f"上下文检索完成: {query[:50]}..., 返回 {len(reranked)} 个文档")
             return reranked
             
         except Exception as e:

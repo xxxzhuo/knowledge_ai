@@ -73,6 +73,11 @@ class Settings(BaseSettings):
     chunk_overlap: int = 200
     max_tokens_per_doc: int = 50000
 
+    # Agent 配置
+    agent_llm_model: str = "llama3"
+    agent_verbose: bool = True
+    agent_max_iterations: int = 10
+
     class Config:
         """Pydantic 配置类。"""
 
