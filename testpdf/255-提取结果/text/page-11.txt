@@ -1,0 +1,135 @@
+Item No.	
+QTY	
+Part No.	
+Description
+	
+1	��������������1	������1000232	����������Valve Assembly, w/o Flow 
+Controls
+	
+2	��������������1	������	������������������������Camshaft:
+	
+	
+	�������1031950	����������Standard, One-Piece
+	
+	
+	�������1033024	����������Standard, Segmented
+	
+	
+	�������1033025	����������Extra Salt, Segmented
+	
+	
+	�������1033026	����������Long Rinse, Segmented
+	
+	
+	�������1032969	����������Water Saver, Segmented
+	
+3	��������������1	������3019873	����������Lever, Locking Cam
+	
+4	��������������1	������1031391	����������Timer Locking Pin
+	
+5	��������������1	������1000226	����������Screen/Cap Assembly  
+w/O-Ring
+	
+6	��������������1	������	������������������������Drain Control Assembly  
+w/O-Rings:
+	
+	
+	�������1000209	����������No. 7 (1.2 gpm; 4.5 Lpm)
+	
+	
+	�������1000210	����������No. 8 (1.6 gpm; 6.1 Lpm)
+	
+	
+	�������1000211	����������No. 9 (2.0 gpm; 7.6 Lpm)
+	
+	
+	�������1000212	����������No. 10 (2.5 gpm; 9.5 Lpm)
+	
+	
+	�������1000213	����������No. 12 (3.5 gpm; 13.2 Lpm)
+	
+	
+	�������1000214	����������No. 13 (4.1 gpm; 15.5 Lpm)**
+	
+	
+	�������1000215	����������No. 14 (4.8 gpm; 18.2 Lpm)**
+	
+7	��������������2	������1030502	����������Ball, Flow control
+	
+8	��������������1	������	������������������������Brine Refill Control:
+	
+	
+	�������1034261	����������1 to 10 lbs Salt
+	
+	
+	�������1034263	����������3 to 19 lbs Salt
+	
+9	��������������1	������	������������������������Injector Assembly with 
+O-Rings:
+	
+	
+	�������1032970	����������“A” Injector - White
+	
+	
+	�������1032971	����������“B” Injector - Blue
+	
+	
+	�������1032972	����������“C” Injector - Red
+	
+10	������������1	������1000269	����������Injector Cap with O-Ring
+	
+11	������������1	������3019870	����������i-Lid Cover
+	
+12	������������1	������1032416	����������Air Check Kit
+	
+13	������������1	������1010154	����������O-Ring EPDM
+	
+14	������������1	������1232370	����������O-Ring EP
+	
+15	������������1	������	������������������������Locking Bar:
+	
+	
+	�������1031402	����������English Language
+	
+	
+	�������1031403	����������French Language
+	
+	
+	�������1031404	����������German Language
+	
+	
+	�������1031405	����������Italian Language
+	
+	
+	�������1031406	����������Japanese Language
+	
+	
+	�������1031407	����������Spanish Language
+	
+16	������������1	������1006093	����������Screw, No. 8 x 9/16 inch
+	
+17	������������1	������1235341	����������Spring, one pc 255
+Kits 
+	
+18	��������������	������1001404	����������O-Ring Group: Tank Adapter, 
+1010117 (1), 1010407 (1), 
+1010410 (4)
+	
+19	��������������	������1040459	����������O-Ring Group: Piping Boss 
+1010431 (1), 1010411 (2)
+	
+20	��������������	������1041010	����������13/16 inch Rubber Insert 
+(Optional) 
+Valve Discs
+	
+*	����������������	������1000250	����������Standard
+*Not Shown
+**FLow control does not use Flow Control Ball (1030502).
+Item No.	
+QTY	
+Part No.	
+Description
+255 Valve & Tank Adapter module 
+continued
+Autotrol
+® 255 Valve/400 Series Service Manual • 11

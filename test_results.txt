@@ -1,0 +1,151 @@
+PDF 处理详细结果
+================================================================================
+处理时间: 2026-02-28 10:10:22
+
+
+────────────────────────────────────────────────────────────────────────────────
+文件: 255.PDF
+────────────────────────────────────────────────────────────────────────────────
+
+基本信息:
+  - 类型: pdf
+  - 分块数: 64
+  - Token 数: 21859
+  - 表格数: 0
+  - 图片数: 0
+
+分块详情 (前 10 个):
+
+[分块 0]
+  类型: list
+  字符数: 253
+  Token 数: 127
+  内容预览:
+    1. Service (Downflow):
+Untreated water is directed down through the resin bed and up 
+through the riser tube. The hardness ions attach themselves 
+to the resin and are removed from the water. The water is 
+conditioned as it passes through the resin bed.
+
+[分块 1]
+  类型: list
+  字符数: 221
+  Token 数: 113
+  内容预览:
+    2. Backwash (upflow):
+The flow of water is reversed by the control valve and directed 
+down the riser tube and up through the resin bed. During the 
+backwash cycle, the bed is expanded and debris is flushed to 
+the drain.
+
+[分块 2]
+  类型: mixed
+  字符数: 406
+  Token 数: 205
+  内容预览:
+    3. Brine/Slow rinse (Downflow):
+The control directs water through the brine injector and brine 
+is drawn from the regenerant tank. The brine is then directed 
+down through the resin bed and up through the riser tube to 
+the drain. The hardness ions are displaced by sodium ions and 
+are sent to the d
+
+[分块 3]
+  类型: mixed
+  字符数: 183
+  Token 数: 93
+  内容预览:
+    4. Fast rinse (Downflow):
+The control directs water down through the resin bed and 
+up through the riser tube to the drain. Any remaining brine 
+residual is rinsed from the resin bed.
+
+[分块 4]
+  类型: mixed
+  字符数: 198
+  Token 数: 100
+  内容预览:
+    5. Brine r efill (Downflow):
+brine refill occurs during a portion of the fast rinse cycle. 
+Water is directed to the regenerant tank at a controlled rate, to 
+create brine for the next regeneration.
+
+[分块 5]
+  类型: mixed
+  字符数: 490
+  Token 数: 243
+  内容预览:
+    6. r epressurize Cycle — (No Flapper open):
+This cycle closes all flappers for a short time to allow the 
+air and water to hydraulically balance in the valve before 
+continuing the regeneration.
+SERVICE BACKWASH BRINE/SLOW RINSE FAST RINSE
+From Regenerant
+Tank
+To Regenerant 
+Tank
+BRINE REFILLREPRESS
+
+[分块 7]
+  类型: list
+  字符数: 136
+  Token 数: 65
+  内容预览:
+    2. If it is likely that supplementary water treating equipment 
+will be required, make certain adequate additional space  
+is available.
+
+[分块 8]
+  类型: mixed
+  字符数: 102
+  Token 数: 51
+  内容预览:
+    3. Since salt must be added periodically to the brine tank, the 
+location should be easily accessible.
+
+[分块 9]
+  类型: mixed
+  字符数: 880
+  Token 数: 446
+  内容预览:
+    4. Do not install any unit closer to a water heater than a total 
+run of 10 feet (3 m) of piping between the outlet of the 
+conditioner and the inlet to the heater. Water heaters can 
+sometimes overheat to the extent they will transmit heat 
+back down the cold pipe into the unit control valve. hot 
+
+
+[分块 10]
+  类型: mixed
+  字符数: 176
+  Token 数: 88
+  内容预览:
+    5. Do not locate unit where it or it’s connections (including 
+the drain and overflow lines) will ever be subjected to room 
+temperatures under 34°F (1°C) or over 120°F (49°C).
+
+────────────────────────────────────────────────────────────────────────────────
+文件: 302.PDF
+────────────────────────────────────────────────────────────────────────────────
+
+基本信息:
+  - 类型: pdf
+  - 分块数: 0
+  - Token 数: 0
+  - 表格数: 0
+  - 图片数: 0
+
+分块详情 (前 10 个):
+
+────────────────────────────────────────────────────────────────────────────────
+文件: 302_5.PDF
+────────────────────────────────────────────────────────────────────────────────
+
+基本信息:
+  - 类型: pdf
+  - 分块数: 0
+  - Token 数: 0
+  - 表格数: 0
+  - 图片数: 0
+
+分块详情 (前 10 个):

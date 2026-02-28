@@ -1,0 +1,119 @@
+EQUIPMENT INSTALLATION
+Autotrol 255 Valve Control Module Features
+400 Series Control
+Variable Brine 
+Control
+Injector Access Plug
+Air Check
+Optional i-lid Cover
+Figure 1  
+Tank Adapter Module Features
+B
+YP
+A
+S
+S
+ 
+B
+YP
+A
+S
+S
+ 
+Optional Bypass
+Probe Connection Slot
+Air Check
+Brine Line Fitting 
+Connection 1/4-inch NPT
+Tank Thread 2-1/2 inch - 8 male
+Inlet Connection 
+3/4-inch or 1-inch 
+NPT or BSPT
+Drain Connection 
+3/8-inch or 
+1/2-inch NPT or 
+BSPT
+Outlet connection 
+3/4-inch or 1-inch 
+NPT or BSPT
+Figure 2  
+System Regeneration Cycles
+1. Service (Downflow):
+Untreated water is directed down through the resin bed and up 
+through the riser tube. The hardness ions attach themselves 
+to the resin and are removed from the water. The water is 
+conditioned as it passes through the resin bed.
+2. Backwash (Upflow):
+The flow of water is reversed by the control valve and directed 
+down the riser tube and up through the resin bed. During the 
+backwash cycle, the bed is expanded and debris is flushed to 
+the drain.
+3. Brine/Slow Rinse (Downflow):
+The control directs water through the brine injector and brine 
+is drawn from the regenerant tank. The brine is then directed 
+down through the resin bed and up through the riser tube to 
+the drain. The hardness ions are displaced by sodium ions and 
+are sent to the drain. The resin is regenerated during the brine 
+cycle. Brine draw is completed when the air check closes.
+4. Fast Rinse (Downflow):
+The control directs water down through the resin bed and 
+up through the riser tube to the drain. Any remaining brine 
+residual is rinsed from the resin bed.
+5. Brine Refill (Downflow):
+Brine refill occurs during a portion of the fast rinse cycle. 
+Water is directed to the regenerant tank at a controlled rate, to 
+create brine for the next regeneration.
+6. Repressurize Cycle — (No Flapper Open):
+This cycle closes all flappers for a short time to allow the 
+air and water to hydraulically balance in the valve before 
+continuing the regeneration.
+SERVICE
+BACKWASH
+BRINE/SLOW RINSE
+FAST RINSE
+From Regenerant
+Tank
+To Regenerant 
+Tank
+BRINE REFILL
+REPRESSURIZE
+C0 
+C1 and C6 
+C2 and C3 
+C4 
+C5 and C7 
+C8 
+Figure 3  
+NOTE:   All plumbing must conform to local codes. Inspect 
+unit carefully for carrier shortage or shipping damage.
+Location Selection
+1.	 The distance between the unit and a drain should be as 
+short as possible.
+2.	 If it is likely that supplementary water treating equipment 
+will be required, make certain adequate additional space  
+is available.
+3.	 Since salt must be added periodically to the brine tank, the 
+location should be easily accessible.
+4.	 Do not install any unit closer to a water heater than a total 
+run of 10 feet (3 m) of piping between the outlet of the 
+conditioner and the inlet to the heater. Water heaters can 
+sometimes overheat to the extent they will transmit heat 
+back down the cold pipe into the unit control valve. Hot 
+water can severely damage the conditioner. A 10 foot (3-m) 
+total pipe run, including bends, elbows, etc., is a reasonable 
+distance to help prevent this possibility. A positive way to 
+prevent hot water from flowing from heat source to the 
+conditioner, in the event of a negative pressure situation, 
+is to install a check valve in the soft water piping from 
+the conditioner. If a check valve is installed, make certain 
+the water heating unit is equipped with a properly rated 
+temperature and pressure safety relief valve. Also, be 
+certain that local codes are not violated.
+5.	 Do not locate unit where it or it’s connections (including 
+the drain and overflow lines) will ever be subjected to room 
+temperatures under 34°F (1°C) or over 120°F (49°C).
+6.	 Do not install unit near acid or acid fumes.
+7.	 The use of resin cleaners in an unvented enclosure is  
+not recommended.
+4 • Autotrol
+® 255 Valve/400 Series Service Manual

@@ -1,0 +1,83 @@
+Increasing the Length of the Transformer Cord
+If it is necessary to extend the length of the transformer cord, 
+an optional 15 foot (4.6 m) extension is available  
+(see Figure 9).
+Figure 8  
+SYSTEM STARTUP
+Initial Startup
+After the water conditioning system is installed, the 
+conditioner should be disinfected before it is used to treat 
+potable water. Refer to the Disinfection of Water Conditioners 
+section in this manual. Complete the following steps to place 
+the conditioner into operation:
+1.	 Remove control valve cover.
+NOTE:  	 The following steps will require turning the indicator 
+knob (Figure 11) to various positions. Insert a 
+wide-blade screwdriver into arrow slot in indicator 
+knob and press in firmly. With knob held in, rotate 
+COUNTERCLOCKWISE only until arrow or knob points 
+to desired position. Rotation is made much easier if 
+you grasp the camshaft with your free hand and turn it 
+at the same time. Then permit knob to spring back out.
+2.	 Insert screwdriver into slot in indicator knob (Figure 11). 
+Press in and rotate knob COUNTERCLOCKWISE until arrow 
+points directly to the word BACKWASH.
+3.	 Fill resin tank with water.
+a.	 With water supply off, place the bypass valve(s) into the 
+“NOT IN BYPASS” position.
+b.	 Open water supply valve very slowly to approximately 
+the 1/4 open position.
+IMPORTANT: If opened too rapidly or too far, resin may be lost. 
+In this position, you should hear air escaping slowly from the 
+drain line.
+c.	 When all of the air has been purged from the tank 
+(water begins to flow steadily from the drain), open the 
+water supply valve all the way.
+d.	 Allow water to run to drain until clear.
+e.	 Turn off water supply and let the unit stand for about 
+five minutes. This will allow all trapped air to escape 
+from the tank.
+4.	 Add water to brine tank (initial fill). With a bucket or hose, 
+add approximately 4 gallons (15 liters) of water to brine 
+tank. If the tank has a salt platform above the bottom of the 
+tank, add water until the level is approximately 1 inch  
+(25 mm) above the platform.
+EQUIPMENT INSTALLATION continued
+Brine Line
+Air Check
+Figure 9  - Control Valve
+5.	 Put into operation.
+a.	 Open water supply valve slowly to full open position.
+b.	 Carefully advance indicator knob 
+COUNTERCLOCKWISE to center of FAST RINSE/REFILL 
+position and hold there until air check (Figure 10) fills 
+with water and water starts to flow through brine line 
+into brine tank. Do not run for more than two minutes.
+c.	 Advance indicator knob COUNTERCLOCKWISE until 
+arrow points to the center of the BRINE/SLOW  
+RINSE position.
+d.	 With the conditioner in this position, check to see if 
+water is being drawn from the brine tank. The water 
+level in the brine tank will recede very slowly. Observe 
+for at least three minutes. If the water level does not 
+recede or goes up, or if air enters the transparent air 
+check chamber and the ball falls and seats, reference 
+Troubleshooting section.
+e.	 Advance indicator knob COUNTERCLOCKWISE to 
+CONDITIONED WATER.
+f.	
+Run water from a nearby faucet until the water is clear 
+and soft.
+PROGRAMMING
+440i Control (obsolete)
+Timer Knob
+Day Arrow
+Skipper Pins
+Skipper Wheel
+Indicator Knob
+Timer 
+Locking Pin
+Time Arrow
+Figure 10  
+6 • Autotrol
+® 255 Valve/400 Series Service Manual

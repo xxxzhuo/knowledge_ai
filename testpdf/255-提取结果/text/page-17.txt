@@ -1,0 +1,136 @@
+Repressurize Position
+Brine Tank
+Mineral Tank
+Drain
+Inlet
+Outlet
+Hard Water
+Soft Water
+3
+2
+4
+6
+Drain Control
+6
+Air Check
+1
+5
+Valve No.
+1-Closed
+2-Closed
+3-Closed
+4-Open
+5-Closed
+6-Closed
+Brine Refill Position
+Brine Tank
+Mineral Tank
+Drain
+Inlet
+Outlet
+Hard Water
+Soft Water
+5
+3
+1
+2
+4
+6
+Drain Control
+6
+Air Check
+Valve No.
+1-Open
+2-Open
+3-Open
+4-Closed
+5-Closed
+6-Closed
+Fast Rinse Position
+Brine Tank
+Mineral Tank
+Drain
+Inlet
+Outlet
+Hard Water
+Soft Water
+5
+3
+2
+4
+6
+Drain Control
+6
+Air Check
+1
+Valve No.
+1-Closed
+2-Open
+3-Closed
+4-Open
+5-Open
+6-Closed
+FLOW DIAGRAMS continued
+FLOW DATA CHARTS
+255 Valve Flow Data
+255
+ SE
+RVI
+CE F
+LOW
+ – C
+v = 3
+.99
+2
+55
+ BA
+CKWA
+SH FLOW 
+– Cv = 1.20 
+LWR 4630 SVC
+LWR 5236  BW
+2
+6
+4
+8
+10
+12
+16
+14
+0
+0.9
+1.4
+1.8
+0.5
+0
+2.3
+2.7
+3.2
+3.6
+1.10
+1.00
+0.90
+0.80
+0.70
+0.60
+0.50
+0.40
+0.30
+0.20
+0.10
+0.00
+16
+14
+12
+10
+  8
+  6
+  4
+  2
+  0
+ Flow Rate (m3/hr)
+ Flow Rate in Gallons Per Minute
+Pressure Drop in PSI
+Pressure Drop (Bar)
+Autotrol
+® 255 Valve/400 Series Service Manual • 17

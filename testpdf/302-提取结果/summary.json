@@ -1,0 +1,36 @@
+{
+  "input_pdf": "knowledge_ai/testpdf/302.PDF",
+  "page_range": "all",
+  "page_count": 2,
+  "output_dir": "knowledge_ai/testpdf/302-提取结果",
+  "images": {
+    "count": 2,
+    "items": [
+      {
+        "page": 1,
+        "file": "knowledge_ai/testpdf/302-提取结果/images/page-1-image-1.png"
+      },
+      {
+        "page": 2,
+        "file": "knowledge_ai/testpdf/302-提取结果/images/page-2-image-1.png"
+      }
+    ]
+  },
+  "text": {
+    "count": 2,
+    "items": [
+      {
+        "page": 1,
+        "file": "knowledge_ai/testpdf/302-提取结果/text/page-1.txt"
+      },
+      {
+        "page": 2,
+        "file": "knowledge_ai/testpdf/302-提取结果/text/page-2.txt"
+      }
+    ]
+  },
+  "datasheet": {
+    "count": 0,
+    "items": []
+  }
+}

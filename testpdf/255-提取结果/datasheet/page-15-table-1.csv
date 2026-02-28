@@ -1,0 +1,30 @@
+Problem,Cause,Correction
+Control will not draw brine.,Low water pressure.,Set pump to maintain 20 psi at softener.
+,Restricted drain line.,Change drain to remove restriction.
+,Injector plugged.,Clean injector and screen.
+,Injector defective.,Replace injector. (Contact dealer.)
+,Air check valve closes prematurely.,"Put control momentarily into brine/slow rinse.
+Replace or repair air check if needed. (Contact
+dealer.)"
+"System using more or
+less salt than regenerant
+setting.","Foreign matter in controller causing
+incorrect flow rates.","Remove brine control and flush out foreign matter.
+Manually position control to brine/slow rinse to
+clean controller (after so doing position control to
+""purge” to remove brine from tank)."
+"Intermittent or irregular
+brine draw.",Low water pressure.,Set pump to maintain 20 psi at softener.
+,Defective injector.,Replace injector. (Contact dealer.)
+"No conditioned water after
+regeneration.",No salt in brine tank.,Add salt to brine tank.
+,Injector plugged.,Clean injector and screen.
+,Air check valve closes prematurely.,"Put control momentarily into brine/slow rinse.
+Replace or repair air check if needed. (Contact
+dealer.)"
+"Control backwashes or
+purges at excessively low or
+high rate.",Incorrect drain controller used.,"Replace with correct size controller. (Contact
+dealer.)"
+,"Foreign matter affecting controller
+operation.",Remove drain controller and clean ball and seat.

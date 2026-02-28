@@ -1,0 +1,6 @@
+,,,,,,,,,"Operating Pressure:20 -125 psi or 1.4 – 8.8 kg/Centimeter2, Operating Temperature: 34 - 100° F or 1.1 – 38° C Acceptable Salt Type: Sodium Chloride – Pellet or solar salt for water softeners All Systems above tested at 35psi +/- 5 psi, pH of 7.5 +/- 0.5, Capacity Testing Flow Rate = 50% of the rated service flow rate for the various size systems."
+,,,,,,,,,
+,,,,,,,,,
+255-460i-100-948,10.0,15.0,"20,483 @ 5.0 28,263 @ 10.0 30,865 @ 14.0","4,096/lb. salt @ 5.0",2.1,1.0,2.1,2.1,
+255-460i-075-844,6.0,9.0,"15, 362 @ 3.75 21,197 @ 7.5 23,148 @ 10.5","4,096/lb. salt @ 3.75",1.7,0.75,1.7,1.7,
+Model,Rated Service Flow (gpm),Pressure Drop at Rated Service Flow Rate (psi),Rated Capacity (grains @ lb. of salt),Rated Efficiency (grains/lb Salt @ lb. of salt),Maximum Flow Rate During Regeneration (gpm),Sybron C-249NS Ion Exchange Resin (cu. ft),Backwash - GPM,Fast Rinse/Purge - GPM,

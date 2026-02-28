@@ -1,0 +1,158 @@
+TABLE OF CONTENTS
+MANUAL OVERVIEW.............................................................2
+SAFETY INFORMATION.........................................................2
+SYSTEM SPECIFICATIONS....................................................2
+EQUIPMENT INSTALLATION................................................4
+SYSTEM STARTUP................................................................6
+PROGRAMMING....................................................................6
+SERVICE AND Maintenance............................................9
+255 Valve & Tank Adapter module ...........................10
+255 Series.........................................................................12
+Troubleshooting..........................................................14
+FLOW DIAGRAMS...............................................................16
+FLOW DATA CHARTS..........................................................17
+MANUAL OVERVIEW
+How To Use This Manual
+This installation manual is designed to guide the installer 
+through the process of installing and starting conditioners 
+featuring the 400 series controllers.
+This manual is a reference and will not include every system 
+installation situation. The person installing this equipment 
+should have:
+• Training in the 400 series controllers and water 
+conditioner installation
+• Knowledge of water conditioning and how to determine 
+proper control settings
+• Basic plumbing skills
+• The directional instructions "left" and “right" are 
+determined by looking at the front of the unit.
+SAFETY INFORMATION
+Electrical
+There are no user-serviceable parts in the AC adapter, 
+motor, or controller. In the event of a failure, these should be 
+replaced:
+• All electrical connections must be completed according 
+to local codes.
+• Use only the power AC adapter that is supplied.
+• The power outlet must be grounded.
+• To disconnect power, unplug the AC adapter from its 
+power source.
+Mechanical
+• Do not use petroleum based lubricants such as 
+petroleum jelly, oils, or hydrocarbon based lubricants. 
+Use only 100% silicone lubricants.
+• All plastic connections should be hand tightened. 
+Plumber's tape may be used on connections that do not 
+use an O-ring seal. Do not use pliers or pipe wrenches.
+• All plumbing must be completed according to local 
+codes.
+• Soldering near the drain line should be done before 
+connecting the drain line to the valve. Excessive heat will 
+cause interior damage to the valve.
+• Do not use lead-based solder for sweat solder 
+connections.
+• The drain line must be a minimum of 1/2" diameter. Use 
+3/4" pipe if the backwash flow rate is greater than 5 GPM 
+(18.9 Lpm) or the pipe length is greater than 20 feet (6 
+m).
+• Do not support the weight of the system on the control 
+valve fittings, plumbing, or the bypass.
+General
+• Keep the media tank in the upright position. Do not turn 
+on side, upside down, or drop. Turning the tank upside 
+down will cause media to enter the valve.
+• Operating ambient temperature is between 34ºF (1ºC) 
+and 120ºF (49ºC).
+• Operating water temperature is between 34ºF (1ºF) and 
+100ºF (38ºC).
+• Working water pressure range is 20 to 125 psi (1.38 
+to 8.61 bar). In Canada the acceptable working water 
+pressure range is 20 to 100 psi (1.38 to 6.89 bar).
+• Use only regenerant salts designed for water softening. 
+Do not use ice melting, block, or rock salts.
+• Follow state and local codes for water testing. Do not use 
+water that is micro-biologically unsafe or of unknown 
+quality.
+• When filling media tank, do not open water valve 
+completely. Fill tank slowly to prevent media from exiting 
+the tank.
+• When installing the water connection (bypass or 
+manifold) connect to the plumbing system first. Allow 
+heated parts to cool and cemented parts to set before 
+installing any plastic parts. Do not get primer or solvent 
+on O-rings, nuts, or the valve.
+California Proposition 65 Warning
+WARNING:  This product contains chemicals known to the 
+State of California to cause cancer or birth 
+defects or other reproductive harm.
+SYSTEM SPECIFICATIONS
+T
+E
+S
+T
+E
+D
+A
+N
+D
+C
+E
+R
+T
+I
+F
+I
+E
+D
+U
+N
+D
+E
+R
+I
+N
+D
+U
+S
+T
+R
+Y
+S
+T
+A
+N
+D
+A
+R
+D
+S
+The systems below have been tested and certified 
+by the WQA to NSF/ANSI Std. 44 and NSF/ANSI 372 
+for “lead free” compliance.
+The 255 valve has been tested and certified by the WQA to 
+NSF/ANSI Std. 61 Section 8 Mechanical Devices
+WQA Certified 255-460i Systems:
+255-460i-075-844
+255-460i-100-948
+Working Pressure:
+20-125 psi (1.38 - 8.61 bar)
+Standard 12 Volt Transformer 
+Input Electrical Rating:
+ 
+115V 60 Hz
+Optional 12 Volt Transformer 
+Input Electrical Rating:
+ 
+115V 50 Hz, 230V 50 Hz, 
+230V 60 Hz, 100V 60 Hz, 
+100V 50 Hz
+Operating Ambient 
+Temperature:
+ 
+34-120°F (1-49°C)
+Operating Water Temperature:
+34-100°F (1-38°C)
+For service or parts, please contact your local professional 
+water treatment dealer.
+2 • Autotrol
+® 255 Valve/400 Series Service Manual

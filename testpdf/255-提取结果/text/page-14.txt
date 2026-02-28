@@ -1,0 +1,59 @@
+Troubleshooting
+The technology upon which the Series 255 control is based 
+is well established and proven in service over many years. 
+However, should a problem or question arise regarding 
+the operation of the system, the control can be very easily 
+serviced. The control module can be quickly replaced or 
+adjustments can be made at the installation. We recommend 
+that you contact your local professional water treatment dealer 
+for most concerns. For parts mentioned, refer to exploded 
+views in the Replacement Parts section of this manual.
+IMPORTANT: Service procedures that require the water 
+pressure to be removed from the system are marked with a ! 
+after the possible cause. Refer to Preventative Maintenance 
+section for instructions.
+Valve Troubleshooting
+Problem
+Cause 
+Correction
+Brine tank overflow.
+Uncontrolled brine refill flow rate.
+Remove brine control to clean ball and seat.
+Air leak in brine line to air check.
+Check all connections in brine line for leaks. Refer 
+to instructions.
+Drain control clogged with resin or other 
+debris.
+Clean drain control.
+Flowing or dripping water 
+at drain or brine line after 
+regeneration.
+Valve stem return spring weak.
+Replace spring. (Contact dealer.)
+Hard water leakage after 
+regeneration.
+Improper regeneration.
+Repeat regeneration after making certain correct 
+salt dosage was set.
+Leaking of external bypass valve.
+Replace bypass valve. (Contact dealer.)
+O-ring around riser pipe damaged.
+Replace o-ring. (Contact dealer.)
+Control will not draw brine.
+Low water pressure.
+Make correct setting according to instructions.
+Restricted drain line.
+Remove restriction.
+Injector plugged !
+Clean injector and screen.
+Injector defective !
+Replace injector and cap. (Contact dealer.)
+Valve disc 2 and/or 3 not closed.
+Remove foreign matter from disc and check disc for 
+closing by pushing in on stem. Replace if needed. 
+(Contact dealer.)
+Air check valve prematurely closed.
+Put control momentarily into brine refill. Replace or 
+repair air check if needed. (Contact dealer.)
+14 • Autotrol
+® 255 Valve/400 Series Service Manual

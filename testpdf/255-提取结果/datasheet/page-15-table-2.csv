@@ -1,0 +1,27 @@
+Problem,Cause,Correction
+"No water flow display when
+water is flowing.",Bypass valve in bypass.,Shift bypass valve to not-in-bypass position.
+,"Meter probe disconnected or not fully
+connected to meter housing.",Fully insert probe into meter housing.
+,"Restricted meter turbine rotation due to
+foreign material in meter !","Remove meter housing, free up turbine and flush
+with clean water. Turbine should spin freely. If not,
+replace meter. (Contact dealer.)"
+,Defective meter probe.,"Replace meter cable (no meter cable for the 460TC)
+(Contact dealer.)"
+"Continuous regeneration.
+Camshaft does not stop at
+the end of regeneration.",Misaligned optical sensor.,"Replace optical sensor (no sensor for the 460TC).
+(Contact dealer.)"
+"Run out of soft water
+between regenerations.",Improper regeneration.,"Repeat regeneration, making certain that correct
+salt dosage is used."
+,Incorrect salt setting.,"Set salt control to proper level. See salt setting
+chart."
+,Incorrect hardness or capacity settings.,Set to correct values. See Programming section.
+,Water hardness has increased.,"Set hardness or days to new value. See
+Programming section."
+,"Restricted meter turbine rotation due to
+foreign material in meter !","Remove meter housing, free up turbine and flush
+with clean water. Turbine should spin freely; if not,
+replace meter. (Contact dealer.)"

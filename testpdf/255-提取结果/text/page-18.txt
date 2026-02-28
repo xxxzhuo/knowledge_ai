@@ -1,0 +1,216 @@
+Injector Performance Graphs
+0.08
+0.07
+0.06
+0.05
+0.04
+0.03
+0.02
+0.01
+0.00
+m3/hr
+Gallons per  Minute
+Gallons per  Minute
+Gallons per  Minute
+Gallons per  Minute
+Gallons per  Minute
+Gallons per  Minute
+0.35
+0.30
+0.25
+0.20
+0.15
+0.10
+0.05
+0.00
+LWR6057
+bar
+bar
+bar
+bar
+bar
+bar
+20
+PSI
+PSI
+PSI
+PSI
+PSI
+PSI
+2
+3.5
+5
+6
+7.5
+40
+60
+80
+100
+120
+Injector “F” (Peach)
+For 7-inch Tanks
+0.11
+0.10
+0.09
+0.08
+0.07
+0.06
+0.05
+0.04
+0.03
+0.02
+0.01
+0.00
+m3/hr
+0.50
+0.40
+0.30
+0.20
+0.10
+0.00
+LWR6057
+20
+2
+3.5
+5
+6
+7.5
+40
+60
+80
+100
+120
+Injector “G” (Tan)
+For 8-inch Tanks
+0.16
+0.14
+0.12
+0.10
+0.08
+0.06
+0.04
+0.02
+0.00
+m3/hr
+0.70
+0.60
+0.50
+0.40
+0.30
+0.20
+0.10
+0.00
+LWR6151
+20
+2
+3.5
+5
+6
+7.5
+40
+60
+80
+100
+120
+Injector “H” (Light Purple)
+For 9-inch Tanks
+0.18
+0.16
+0.14
+0.12
+0.10
+0.08
+0.06
+0.04
+0.02
+0.00
+m3/hr
+0.80
+0.60
+0.40
+0.20
+0.00
+LWR6151
+20
+2
+3.5
+5
+6
+7.5
+40
+60
+80
+100
+120
+Injector “J” (Light Blue)
+For 10-inch Tanks
+0.25
+0.20
+0.15
+0.10
+0.05
+0.00
+3
+m /hr
+1.20
+1.00
+0.80
+0.60
+0.40
+0.20
+0.00
+LWR6151
+20
+2
+3.5
+5
+6
+7.5
+40
+60
+80
+100
+120
+Injector “K” (Pink)
+For 12-inch Tanks
+0.30
+0.20
+0.10
+0.00
+m3/hr
+1.50
+1.25
+1.00
+0.75
+0.50
+0.25
+0.00
+LWR6164
+20
+2
+3.5
+5
+6
+7.5
+40
+60
+80
+100
+120
+Injector “L”  (Orange)
+For 13- and 14-inch Tanks
+TOTAL                    BRINE DRAW                    RINSE
+  
+TOTAL                    BRINE DRAW                    RINSE
+  
+TOTAL                    BRINE DRAW                    RINSE
+  
+TOTAL                    BRINE DRAW                    RINSE
+  
+TOTAL                    BRINE DRAW                    RINSE
+  
+TOTAL                    BRINE DRAW                    RINSE
+  
+FLOW DATA CHARTS continued
+18 • Autotrol
+® 255 Valve/400 Series Service Manual

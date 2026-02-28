@@ -1,0 +1,90 @@
+Guest Cycle (Manual Regeneration)
+When abnormally high water usage exhausts your 
+water conditioner’s capacity ahead of schedule, an extra 
+regeneration can be achieved. Depress the indicator knob on 
+the 440i (Figure 11) with a wide-blade screwdriver and turn 
+COUNTERCLOCKWISE to START to initiate a regeneration. 
+For the 460i, simply depress the indicator knob (Figure 12). 
+It will take a few minutes for regeneration to start. A normal 
+regeneration will take approximately two hours.
+SERVICE AND Maintenance
+Inspect and clean brine tank and screen filter on end of brine 
+pickup tube once a year or when sediment appears in the 
+bottom of the brine tank.
+Clean injector screen and injector once a year:
+1.	 Unplug the wall-mount transformer.
+2.	 Shut off water supply or put bypass valve(s) into  
+bypass position.
+3.	 Relieve system pressure by opening valve No. 5 (at rear) 
+with a screwdriver.
+4.	 Using a screwdriver, remove injector screen and injector 
+cap (Figure 16).
+5.	 Clean screen using a fine brush. Flush until clean.
+6.	 Using a needle-nose pliers, pull injector straight out.
+7.	 Flush water into the injector screen recess of the valve 
+body to flush debris out through the injector recess.
+8.	 Clean and flush the injector.
+9.	 Lubricate the o-rings on the injector, injector cap and 
+injector screen with silicone lubricant.
+10.	Reinstall the injector, injector cap and injector screen. See 
+IMPORTANT note.
+11.	Plug the wall-mount transformer into outlet; reset time  
+of day.
+12.	Slowly open water supply valve or return bypass valve(s) to 
+the “not in bypass” position.
+IMPORTANT: Do not overtighten the plastic cap. Seat the cap 
+lightly into position. Overtightening may cause breakage of the 
+plastic cap that may not be immediately evident.
+Screen
+Injector
+Injector Cap
+Figure 20  
+Disinfection Of Water Conditioners
+The materials of construction of the modern water conditioner 
+will not support bacterial growth, nor will these materials 
+contaminate a water supply. During normal use, a conditioner 
+may become fouled with organic matter, or in some cases with 
+bacteria from the water supply. This may result in an off-taste 
+or odor in the water.
+Some conditioners may need to be disinfected after 
+installation and some conditioners will require periodic 
+disinfection during their normal life.
+Depending upon the conditions of use, the style of conditioner, 
+the type of ion exchanger, and the disinfectant available, a 
+choice can be made among the following methods.
+Sodium or Calcium Hypochlorite Application
+These materials are satisfactory for use with polystyrene 
+resins, synthetic gel zeolite, greensand and bentonites.
+5.25% Sodium Hypochlorite
+These solutions are commonly known as household bleach. 
+If stronger solutions are used, such as those sold for 
+commercial laundries, adjust the dosage accordingly.
+1.	 Dosage
+g.	 Polystyrene resin; 1.2 fluid ounce (35.5 ml) per  
+cubic foot.
+h.	 Non-resinous exchangers; 0.8 fluid ounce (23.7 ml) per 
+cubic foot.
+2.	 Brine tank conditioners
+a.	 Backwash the conditioner and add the required 
+amount of hypochlorite solution to the well of the 
+regenerant tank. The regenerant tank should have 
+water in it to permit the solution to be carried into the 
+conditioner.
+b.	 Proceed with the normal regeneration.
+Calcium Hypochlorite
+Calcium hypochlorite, 70% available chlorine, is available in 
+several forms including tablets and granules. These solid 
+materials may be used directly without dissolving before use.
+1.	 Dosage
+a.	 Two grains (approximately 0.1 ounce [3 ml]) per  
+cubic foot.
+2.	 Regenerant tank conditioners
+a.	 Backwash the conditioner and add the required 
+amount of hypochlorite to the well of the regenerant 
+tank. The regenerant tank should have water in it to 
+permit the chlorine solution to be carried into the 
+conditioner.
+b.	 Proceed with the normal regeneration.
+PROGRAMMING continued
+Autotrol
+® 255 Valve/400 Series Service Manual • 9

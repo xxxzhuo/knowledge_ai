@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-02-28 14:55:28",
+  "tests": [
+    {
+      "name": "向量库连接",
+      "status": "通过",
+      "error": null
+    },
+    {
+      "name": "Embedding 服务",
+      "status": "通过",
+      "error": null
+    },
+    {
+      "name": "向量添加和存储",
+      "status": "通过",
+      "error": null
+    },
+    {
+      "name": "向量搜索和检索",
+      "status": "通过",
+      "error": null
+    },
+    {
+      "name": "检索器集成",
+      "status": "通过",
+      "error": null
+    },
+    {
+      "name": "向量库统计信息",
+      "status": "通过",
+      "error": null
+    }
+  ],
+  "summary": {
+    "total": 6,
+    "passed": 6,
+    "failed": 0
+  }
+}

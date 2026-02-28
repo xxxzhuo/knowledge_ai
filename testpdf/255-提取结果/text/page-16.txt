@@ -1,0 +1,100 @@
+FLOW DIAGRAMS
+255 Valve
+Service Position
+Brine Tank
+Mineral Tank
+Drain
+Inlet
+Outlet
+Hard Water
+Soft Water
+5
+3
+1
+2
+4
+6
+Drain Control
+6
+Air Check
+Valve No.
+1-Closed
+2-Open
+3-Open
+4-Closed
+5-Closed
+6-Closed
+Brining Position
+Brine Tank
+Mineral Tank
+Drain
+Inlet
+Outlet
+Hard Water
+Soft Water
+3
+6
+Drain Control
+6
+Air Check
+1
+5
+2
+4
+Valve No.
+1-Open
+2-Closed
+3-Closed
+4-Open
+5-Open
+6-Closed
+Backwash Position
+Brine Tank
+Mineral Tank
+Drain
+Inlet
+Outlet
+Hard Water
+Soft Water
+3
+6
+Drain Control
+6
+Air Check
+5
+2
+4
+1
+Valve No.
+1-Closed
+2-Closed
+3-Open
+4-Open
+5-Closed
+6-Open
+Slow Rinse Position
+Brine Tank
+Mineral Tank
+Drain
+Inlet
+Outlet
+Hard Water
+Soft Water
+5
+3
+2
+4
+6
+Drain Control
+6
+Air Check
+1
+Valve No.
+1-Open
+2-Closed
+3-Closed
+4-Open
+5-Open
+6-Closed
+16 • Autotrol
+® 255 Valve/400 Series Service Manual

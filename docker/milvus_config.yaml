@@ -1,0 +1,40 @@
+# Milvus Configuration File
+# For detailed configuration options, see: https://milvus.io/docs/configure_etcd.md
+
+common:
+  # 日志配置
+  loglevel: info
+  logpath: /var/log/milvus
+  
+etcd:
+  endpoints:
+    - localhost:2379
+  # 连接超时
+  dial_timeout: 30000000000
+  # 操作超时
+  operation_timeout: 30000000000
+
+storage:
+  # 存储类型: local, remote
+  type: local
+  store_type: minio
+  
+  # Local 存储配置
+  path: /var/lib/milvus
+  
+  # MinIO 配置
+  minio:
+    address: minio:9000
+    access_keyid: minioadmin
+    secret_accesskey: minioadmin
+    use_ssl: false
+    bucket_name: milvus-bucket
+    root_path: milvus
+
+  # 日志存储
+  logpath: /var/log/milvus
+
+# Milvus 组件配置
+use_builtin_role: true
+
+# 其他配置可根据需要添加

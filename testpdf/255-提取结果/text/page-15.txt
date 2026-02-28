@@ -1,0 +1,97 @@
+Troubleshooting continued
+255/440i Troubleshooting
+Problem
+Cause 
+Correction
+Control will not draw brine.
+Low water pressure.
+Set pump to maintain 20 psi at softener.
+Restricted drain line.
+Change drain to remove restriction.
+Injector plugged.
+Clean injector and screen.
+Injector defective.
+Replace injector. (Contact dealer.)
+Air check valve closes prematurely.
+Put control momentarily into brine/slow rinse. 
+Replace or repair air check if needed. (Contact 
+dealer.)
+System using more or 
+less salt than regenerant 
+setting.
+Foreign matter in controller causing 
+incorrect flow rates.
+Remove brine control and flush out foreign matter. 
+Manually position control to brine/slow rinse to 
+clean controller (after so doing position control to 
+"purge” to remove brine from tank).
+Intermittent or irregular 
+brine draw.
+Low water pressure.
+Set pump to maintain 20 psi at softener.
+Defective injector.
+Replace injector. (Contact dealer.)
+No conditioned water after 
+regeneration.
+No salt in brine tank.
+Add salt to brine tank.
+Injector plugged.
+Clean injector and screen.
+Air check valve closes prematurely.
+Put control momentarily into brine/slow rinse. 
+Replace or repair air check if needed. (Contact 
+dealer.)
+Control backwashes or 
+purges at excessively low or 
+high rate.
+Incorrect drain controller used.
+Replace with correct size controller. (Contact 
+dealer.)
+Foreign matter affecting controller 
+operation.
+Remove drain controller and clean ball and seat.
+255/460i/460TC Troubleshooting
+Problem
+Cause 
+Correction
+No water flow display when 
+water is flowing.
+Bypass valve in bypass.
+Shift bypass valve to not-in-bypass position.
+Meter probe disconnected or not fully 
+connected to meter housing.
+Fully insert probe into meter housing.
+Restricted meter turbine rotation due to 
+foreign material in meter !
+Remove meter housing, free up turbine and flush 
+with clean water. Turbine should spin freely. If not, 
+replace meter. (Contact dealer.)
+Defective meter probe.
+Replace meter cable (no meter cable for the 460TC) 
+(Contact dealer.)
+Continuous regeneration. 
+Camshaft does not stop at 
+the end of regeneration.
+Misaligned optical sensor.
+Replace optical sensor (no sensor for the 460TC). 
+(Contact dealer.)
+Run out of soft water 
+between regenerations.
+Improper regeneration.
+Repeat regeneration, making certain that correct 
+salt dosage is used.
+Incorrect salt setting.
+Set salt control to proper level. See salt setting 
+chart.
+Incorrect hardness or capacity settings.
+Set to correct values. See Programming section.
+Water hardness has increased.
+Set hardness or days to new value. See 
+Programming section.
+Restricted meter turbine rotation due to 
+foreign material in meter !
+Remove meter housing, free up turbine and flush 
+with clean water. Turbine should spin freely; if not, 
+replace meter. (Contact dealer.)
+Autotrol
+® 255 Valve/400 Series Service Manual • 15

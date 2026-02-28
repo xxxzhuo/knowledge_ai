@@ -1,0 +1,103 @@
+Programming
+1.	 Set days of regeneration on skipper wheel (Figure 11).
+• Pull all skipper pins outward (away from control).
+• Rotate skipper wheel until day arrow points to current 
+day or number 1.
+• Depress skipper pin(s) at day(s) for which regeneration  
+is desired.
+2.	 Set the time of day.
+• Grasp timer knob and pull outward.
+• Rotate in either direction until the timer arrow points to 
+the actual time of day.
+• Release timer knob.
+NOTE:  	 With the time of day properly set, the conditioner will 
+regenerate at about 2:30 a.m. If you prefer to have the 
+unit regenerate at an earlier or later time, simply set 
+current time-of-day accordingly (e.g., to have the unit 
+regenerate at 4:30 a.m.—two hours later—set the 
+clock two hours earlier than the actual time of day.)
+NOTE:  	 The Timer Locking Pin should always be horizontal 
+(Figure 11) during operation.
+460i Control
+Transformer 
+Plug Receptacle
+Hour Time Display
+Access Door
+Water Flow Indicator
+Time Set Button
+Raised Tab
+Indicator Knob
+Timer 
+Locking Pin
+PM Indicator
+Spare Jumper
+Jumper
+Figure 11  
+Programming
+Plug the wall-mount transformer into a functioning electrical 
+outlet that is not controlled by a switch. Plug the transformer 
+into the transformer plug receptacle on the control.
+Open the access door by pushing the raised tab on the door 
+toward the left while pulling the tab out (Figure 12).
+Time of Day Setting
+With the jumper on the set of pins next to the word TIME 
+(Figure 13), set the time of day to the closest hour by pressing 
+the black TIME SET button. PM hours are indicated by a light 
+next to the letters PM on the display window.
+NOTE:  	 The use of a small needle-nose pliers will aid in 
+moving the jumper.
+NOTE:  	 The unit is factory set to regenerate at 2:00 a.m. If 
+you prefer to have the unit regenerate at an earlier 
+or later time, simply set the current time of day 
+accordingly (e.g., to have the unit regenerate at 4:00 
+a.m.—two hours later—set the clock two hours 
+earlier than the actual time of day).
+NOTE:  	 The Timer Locking Pin should always be horizontal 
+(Figure 12) during operation.
+Hardness Setting
+Move the jumper to the set of pins next to the word HARDNESS 
+(Figure 14). Press the black TIME SET button until the 
+hardness of the incoming water supply is displayed. The 
+hardness range is from 1 to 99 grains per gallon.
+To change water hardness stated in parts per million (PPM) to 
+grains per gallon (GPG) use this formula:
+Parts per Million
+=
+Grains Per Gallon
+17.1
+Figure 12   
+Figure 13   
+Figure 14   
+Capacity Setting
+Move the jumper to the set of pins next to the word CAPACITY 
+(Figure 15). Press the black TIME SET button until the correct 
+capacity value is displayed. The capacity range is 1 to 99 
+kilograins. Refer to the Suggested Salt Dial Settings table.
+Return the jumper to the top set of pins next to the word TIME 
+and replace the access door. The jumper must NOT be left 
+on any pins other than the top pair next to the word TIME. 
+Otherwise, the unit may show a blank display.
+NOTE:  	 A spare jumper is located on the bottom set of pins. 
+In the event that the hardness or capacity setting 
+must be changed, simply follow the appropriate steps 
+described above.
+Calendar Override Setting
+1.	 Disconnect power.
+2.	 Place jumper on Pin A and reconnect power.
+3.	 Move jumper to Pin B. A zero will appear, indicating 
+zero days of calendar override. All 460i controllers are 
+preprogrammed in this manner at the manufacturer.
+4.	 Depress the black TIME SET button. The numbers will roll 
+from “0” to “15.” Release the switch at the desired number 
+of days for the calendar override. For example, releasing 
+the switch at “10” would program a 10-day  
+calendar override.
+5.	 Disconnect power.
+6.	 Place jumper back on TIME and reconnect power.
+7.	 The calendar override program is maintained during power 
+outages by the NOVRAM circuitry.
+8.	 To remove the calendar override, follow the same steps 
+above and program back to “0.”
+PROGRAMMING continued
+Autotrol
+® 255 Valve/400 Series Service Manual • 7
