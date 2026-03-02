@@ -221,8 +221,9 @@ class TableAwareChunker(BaseChunker):
                     chunks.append(chunk)
                     chunk_index += 1
 
-                # 开始新的分块（考虑重叠）
-                current_chunk = segment[-self.chunk_overlap:] if len(segment) > self.chunk_overlap else segment
+                # 开始新的分块（考虑重叠：取前一个 chunk 末尾作为上下文）
+                overlap_text = current_chunk[-self.chunk_overlap:] if len(current_chunk) > self.chunk_overlap else current_chunk
+                current_chunk = overlap_text + segment
 
         # 处理最后一个分块
         if current_chunk.strip():

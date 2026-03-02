@@ -32,8 +32,11 @@ class OllamaEmbeddingService(EmbeddingService):
             host: Ollama 服务地址（默认: http://localhost:11434）
         """
         settings = get_settings()
-        self.model_name = model_name or getattr(settings, 'ollama_embedding_model', 'embeddinggemma')
-        self.host = host or getattr(settings, 'ollama_host', 'http://localhost:11434')
+        self.model_name = model_name or settings.ollama_embedding_model
+        self.host = host or settings.ollama_host
+        
+        # 创建指定 host 的 Ollama 客户端实例
+        self._client = ollama.Client(host=self.host)
         
         # 缓存向量维度（第一次调用时获取）
         self._dimension = None
@@ -52,7 +55,7 @@ class OllamaEmbeddingService(EmbeddingService):
         if self._dimension is None:
             try:
                 # 使用一个简单的文本来测试并获取维度
-                test_response = ollama.embed(
+                test_response = self._client.embed(
                     model=self.model_name,
                     input='test'
                 )
@@ -84,7 +87,7 @@ class OllamaEmbeddingService(EmbeddingService):
                 logger.warning("尝试向量化空文本，返回零向量")
                 return [0.0] * self.get_dimension()
             
-            response = ollama.embed(
+            response = self._client.embed(
                 model=self.model_name,
                 input=text
             )
@@ -122,7 +125,7 @@ class OllamaEmbeddingService(EmbeddingService):
             filtered_texts = [text if text and text.strip() else " " for text in texts]
             
             # Ollama 支持批量处理
-            response = ollama.embed(
+            response = self._client.embed(
                 model=self.model_name,
                 input=filtered_texts
             )
@@ -164,7 +167,7 @@ class OllamaEmbeddingService(EmbeddingService):
         """
         try:
             # 尝试执行一个简单的 embedding 操作
-            result = ollama.embed(
+            result = self._client.embed(
                 model=self.model_name,
                 input='health check'
             )

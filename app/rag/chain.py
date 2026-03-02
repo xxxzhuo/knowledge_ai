@@ -6,7 +6,6 @@ from operator import itemgetter
 
 from langchain_core.runnables import (
     RunnablePassthrough,
-    RunnableParallel,
     RunnableLambda
 )
 from langchain_core.output_parsers import StrOutputParser
@@ -139,18 +138,6 @@ class RAGChain:
                     "context": itemgetter("question") | RunnableLambda(retrieve_and_rerank) | RunnableLambda(format_docs),
                     "chat_history": itemgetter("chat_history") | RunnableLambda(format_chat_history),
                     "question": itemgetter("question")
-                }
-                | self.prompt
-                | self.llm
-                | StrOutputParser()
-            )
-        
-        else:
-            # 默认使用基础 QA Chain
-            self.chain = (
-                {
-                    "context": RunnableLambda(retrieve_and_rerank) | RunnableLambda(format_docs),
-                    "question": RunnablePassthrough()
                 }
                 | self.prompt
                 | self.llm

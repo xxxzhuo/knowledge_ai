@@ -62,7 +62,8 @@ class SimpleReranker(Reranker):
         
         Args:
             query: 查询文本
-            documents: 检索结果 [(distance, text, metadata), ...]
+            documents: 检索结果 [(similarity, text, metadata), ...]
+                       注意：VectorRetriever 已将 L2 距离转换为相似度
             top_k: 返回的文档数量
             
         Returns:
@@ -71,19 +72,16 @@ class SimpleReranker(Reranker):
         if not documents:
             return []
         
-        # 转换距离为相似度 (Milvus 使用 L2 距离)
-        # similarity = 1 / (1 + distance)
+        # 输入已经是 (similarity, text, metadata) 格式
+        # VectorRetriever.retrieve_with_embedding() 已完成 L2 -> similarity 转换
         scored_docs = []
         seen_texts = set()
         
-        for distance, text, metadata in documents:
+        for similarity, text, metadata in documents:
             # 去重
             if text in seen_texts:
                 continue
             seen_texts.add(text)
-            
-            # 计算相似度
-            similarity = 1.0 / (1.0 + distance)
             
             # 过滤低分文档
             if similarity >= self.min_similarity:
@@ -246,7 +244,8 @@ class HybridReranker(Reranker):
         
         Args:
             query: 查询文本
-            documents: 检索结果 [(distance, text, metadata), ...]
+            documents: 检索结果 [(similarity, text, metadata), ...]
+                       注意：VectorRetriever 已将 L2 距离转换为相似度
             top_k: 返回的文档数量
             
         Returns:
@@ -255,16 +254,18 @@ class HybridReranker(Reranker):
         if not documents:
             return []
         
-        # 归一化向量分数
-        vector_scores = []
-        for distance, _, _ in documents:
-            similarity = 1.0 / (1.0 + distance)
-            vector_scores.append(similarity)
+        # 输入已经是 similarity（VectorRetriever 已转换），直接使用
+        vector_scores = [similarity for similarity, _, _ in documents]
+        
+        # 建立文本到原始索引的映射，用于对齐 CE 分数
+        text_to_idx = {text: i for i, (_, text, _) in enumerate(documents)}
         
         # 获取 cross-encoder 分数
         if self.cross_encoder:
             ce_results = self.cross_encoder.rerank(query, documents, len(documents))
-            ce_scores = [score for score, _, _ in ce_results]
+            # CE rerank 会改变顺序，需要按文本重新对齐到原始顺序
+            ce_score_map = {text: score for score, text, _ in ce_results}
+            ce_scores = [ce_score_map.get(text, 0.0) for _, text, _ in documents]
         else:
             ce_scores = vector_scores  # 降级
         
@@ -363,14 +364,21 @@ class HybridReranker(Reranker):
         Returns:
             相似度分数 (0-1)
         """
-        words1 = set(text1.lower().split())
-        words2 = set(text2.lower().split())
+        # 对中文文本使用字符级 n-gram（bigram）而非空格分词
+        def char_ngrams(text: str, n: int = 2) -> set:
+            text = text.lower().strip()
+            if len(text) < n:
+                return {text} if text else set()
+            return {text[i:i+n] for i in range(len(text) - n + 1)}
         
-        if not words1 or not words2:
+        ngrams1 = char_ngrams(text1)
+        ngrams2 = char_ngrams(text2)
+        
+        if not ngrams1 or not ngrams2:
             return 0.0
         
-        intersection = len(words1 & words2)
-        union = len(words1 | words2)
+        intersection = len(ngrams1 & ngrams2)
+        union = len(ngrams1 | ngrams2)
         
         return intersection / union if union > 0 else 0.0
 

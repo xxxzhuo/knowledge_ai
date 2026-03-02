@@ -38,5 +38,9 @@ def get_db():
 
 
 def init_db():
-    """创建数据库表。"""
-    Base.metadata.create_all(bind=engine)
+    """创建数据库表。数据库不可用时仅打印警告，不阻止应用启动。"""
+    import logging
+    try:
+        Base.metadata.create_all(bind=engine)
+    except Exception as e:
+        logging.getLogger(__name__).warning(f"数据库初始化失败（应用仍可使用非数据库功能）: {e}")

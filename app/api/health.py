@@ -3,11 +3,12 @@
 from datetime import datetime
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
+from sqlalchemy import text
 import logging
 
 from app.database import get_db
 from app.schemas import HealthStatus
-from app.storage import MilvusStore
+from app.storage import get_milvus_store
 from app.embeddings import get_embedding_service
 
 router = APIRouter()
@@ -17,7 +18,7 @@ logger = logging.getLogger(__name__)
 def check_vector_store() -> str:
     """检查向量库健康状态"""
     try:
-        vector_store = MilvusStore()
+        vector_store = get_milvus_store()
         if vector_store.is_healthy():
             return "healthy"
         else:
@@ -56,7 +57,7 @@ async def health_check(db: Session = Depends(get_db)) -> HealthStatus:
     # 检查数据库
     db_status = "healthy"
     try:
-        db.execute("SELECT 1")
+        db.execute(text("SELECT 1"))
     except Exception as e:
         logger.error(f"数据库检查失败: {str(e)}")
         db_status = "unhealthy"
@@ -70,7 +71,7 @@ async def health_check(db: Session = Depends(get_db)) -> HealthStatus:
     # 决定整体状态
     if db_status == "unhealthy" or vector_store_status == "unhealthy" or embeddings_status == "unhealthy":
         overall_status = "unhealthy"
-    elif db_status == "unhealthy" or vector_store_status == "degraded" or embeddings_status == "degraded":
+    elif vector_store_status == "degraded" or embeddings_status == "degraded":
         overall_status = "degraded"
     else:
         overall_status = "healthy"
@@ -90,7 +91,7 @@ async def health_check(db: Session = Depends(get_db)) -> HealthStatus:
 async def vector_store_health() -> dict:
     """获取向量库详细的健康信息"""
     try:
-        vector_store = MilvusStore()
+        vector_store = get_milvus_store()
         stats = {
             "status": "healthy" if vector_store.is_healthy() else "unhealthy",
             "vector_count": vector_store.count(),

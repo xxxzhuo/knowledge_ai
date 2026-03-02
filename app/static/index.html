@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>存储芯片料号解析系统</title>
+<style>
+:root {
+  --primary: #4f6df5;
+  --primary-dark: #3a56d4;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --bg: #f3f4f6;
+  --card: #ffffff;
+  --border: #e5e7eb;
+  --text: #1f2937;
+  --text2: #6b7280;
+  --radius: 10px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+/* ---- header ---- */
+.header { background: linear-gradient(135deg, var(--primary), #6366f1); color: #fff; padding: 20px 32px; display: flex; align-items: center; gap: 16px; box-shadow: 0 2px 8px rgba(0,0,0,.12); }
+.header h1 { font-size: 22px; font-weight: 700; }
+.header span { font-size: 13px; opacity: .8; }
+
+/* ---- tabs ---- */
+.tabs { display: flex; gap: 0; background: var(--card); border-bottom: 2px solid var(--border); padding: 0 24px; }
+.tab-btn { padding: 14px 28px; font-size: 15px; font-weight: 500; border: none; background: none; cursor: pointer; color: var(--text2); border-bottom: 3px solid transparent; transition: .2s; }
+.tab-btn:hover { color: var(--primary); }
+.tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+/* ---- container ---- */
+.container { max-width: 1200px; margin: 24px auto; padding: 0 24px; }
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* ---- card ---- */
+.card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
+.card h3 { font-size: 16px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+
+/* ---- form ---- */
+.input-row { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+.input-row input, .input-row select { flex: 1; min-width: 180px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; outline: none; transition: .2s; }
+.input-row input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(79,109,245,.15); }
+.btn { padding: 10px 24px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: .2s; display: inline-flex; align-items: center; gap: 6px; }
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-success { background: var(--success); color: #fff; }
+.btn-danger { background: var(--danger); color: #fff; }
+.btn-sm { padding: 6px 14px; font-size: 13px; }
+
+/* ---- result table ---- */
+.result-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 12px; }
+.result-table th { background: #f8fafc; padding: 10px 14px; text-align: left; font-weight: 600; border-bottom: 2px solid var(--border); white-space: nowrap; }
+.result-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+.result-table tr:hover td { background: #f0f4ff; }
+
+/* ---- badge ---- */
+.badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+.badge-high { background: #dcfce7; color: #166534; }
+.badge-medium { background: #fef9c3; color: #854d0e; }
+.badge-low { background: #fee2e2; color: #991b1b; }
+
+/* ---- param cards ---- */
+.param-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin-top: 16px; }
+.param-card { background: #f8fafc; border-radius: 8px; padding: 14px; text-align: center; border: 1px solid var(--border); }
+.param-card .label { font-size: 12px; color: var(--text2); margin-bottom: 4px; }
+.param-card .value { font-size: 20px; font-weight: 700; color: var(--primary); }
+.param-card .value.unknown { color: #d1d5db; font-size: 16px; }
+
+/* ---- compare dynamic rows ---- */
+.dyn-row { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+.dyn-row input { flex: 1; }
+
+/* ---- BOM dynamic rows ---- */
+.bom-row { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+.bom-row input { flex: 1; }
+.bom-row input.qty { max-width: 100px; }
+
+/* ---- chat ---- */
+.chat-box { max-height: 400px; overflow-y: auto; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 12px; background: #fafbfc; }
+.chat-msg { margin-bottom: 12px; }
+.chat-msg.user { text-align: right; }
+.chat-msg .bubble { display: inline-block; max-width: 80%; padding: 10px 16px; border-radius: 12px; font-size: 14px; line-height: 1.6; white-space: pre-wrap; word-break: break-all; }
+.chat-msg.user .bubble { background: var(--primary); color: #fff; border-bottom-right-radius: 4px; }
+.chat-msg.bot .bubble { background: #e8ecf4; color: var(--text); border-bottom-left-radius: 4px; }
+
+/* ---- summary bar ---- */
+.summary-bar { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; padding: 16px; background: linear-gradient(135deg, #eef2ff, #e0e7ff); border-radius: 8px; }
+.summary-item { text-align: center; flex: 1; min-width: 120px; }
+.summary-item .s-label { font-size: 12px; color: var(--text2); }
+.summary-item .s-value { font-size: 22px; font-weight: 700; color: var(--primary); }
+
+/* ---- loading ---- */
+.loading { color: var(--text2); font-style: italic; padding: 8px 0; }
+
+/* ---- example ---- */
+.example-list { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.example-chip { padding: 4px 12px; background: #eef2ff; color: var(--primary); border-radius: 16px; font-size: 12px; cursor: pointer; border: 1px solid transparent; transition: .15s; }
+.example-chip:hover { border-color: var(--primary); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>&#128200; 存储芯片料号解析系统</h1>
+    <span>Semiconductor Part Number Intelligence</span>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" data-tab="parse">&#128269; 料号解析</button>
+  <button class="tab-btn" data-tab="compare">&#128203; 料号对比</button>
+  <button class="tab-btn" data-tab="bom">&#128230; BOM 清单</button>
+  <button class="tab-btn" data-tab="chat">&#128172; 智能问答</button>
+</div>
+
+<div class="container">
+
+  <!-- ====== 1. 料号解析 ====== -->
+  <div class="panel active" id="panel-parse">
+    <div class="card">
+      <h3>&#127919; 料号解析</h3>
+      <div class="example-list">
+        <span class="example-chip" onclick="fillParse('FBMB47R128G8ABAEAWG5-AS')">FBMB47R128G8ABAEAWG5-AS</span>
+        <span class="example-chip" onclick="fillParse('SUM123Z32512M8-TP')">SUM123Z32512M8-TP</span>
+        <span class="example-chip" onclick="fillParse('MT29N48R-IT:E9')">MT29N48R-IT:E9</span>
+        <span class="example-chip" onclick="fillParse('M321R8GA0BB0-CQKBY')">M321R8GA0BB0-CQKBY</span>
+      </div>
+      <div class="input-row">
+        <input id="parse-input" type="text" placeholder="输入料号，如 FBMB47R128G8ABAEAWG5-AS" />
+        <input id="parse-qty" type="number" value="1" min="1" style="max-width:100px" placeholder="数量" />
+        <button class="btn btn-primary" onclick="doParse()">解析</button>
+      </div>
+      <div id="parse-result"></div>
+    </div>
+  </div>
+
+  <!-- ====== 2. 料号对比 ====== -->
+  <div class="panel" id="panel-compare">
+    <div class="card">
+      <h3>&#128203; 多料号对比</h3>
+      <div id="compare-rows">
+        <div class="dyn-row"><input type="text" class="cmp-input" placeholder="料号 1" /><button class="btn btn-danger btn-sm" onclick="removeCmpRow(this)">-</button></div>
+        <div class="dyn-row"><input type="text" class="cmp-input" placeholder="料号 2" /><button class="btn btn-danger btn-sm" onclick="removeCmpRow(this)">-</button></div>
+      </div>
+      <div style="display:flex;gap:8px;margin-bottom:16px;">
+        <button class="btn btn-success btn-sm" onclick="addCmpRow()">+ 添加料号</button>
+        <button class="btn btn-primary" onclick="doCompare()">开始对比</button>
+      </div>
+      <div id="compare-result"></div>
+    </div>
+  </div>
+
+  <!-- ====== 3. BOM 清单 ====== -->
+  <div class="panel" id="panel-bom">
+    <div class="card">
+      <h3>&#128230; BOM 清单生成</h3>
+      <div id="bom-rows">
+        <div class="bom-row"><input type="text" class="bom-pn" placeholder="料号" /><input type="number" class="qty" value="100" min="1" placeholder="数量" /><button class="btn btn-danger btn-sm" onclick="removeBomRow(this)">-</button></div>
+      </div>
+      <div style="display:flex;gap:8px;margin-bottom:16px;">
+        <button class="btn btn-success btn-sm" onclick="addBomRow()">+ 添加</button>
+        <button class="btn btn-primary" onclick="doBom()">生成 BOM</button>
+      </div>
+      <div id="bom-result"></div>
+    </div>
+  </div>
+
+  <!-- ====== 4. 智能问答 ====== -->
+  <div class="panel" id="panel-chat">
+    <div class="card">
+      <h3>&#128172; 智能问答 (Agent)</h3>
+      <div class="chat-box" id="chat-box"></div>
+      <div class="input-row">
+        <input id="chat-input" type="text" placeholder="输入问题，如: 解析 FBMB47R128G8ABAEAWG5-AS" onkeydown="if(event.key==='Enter')doChat()" />
+        <button class="btn btn-primary" onclick="doChat()">发送</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const API = '/api/v1/agent';
+
+/* ---- Tab switching ---- */
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+/* ---- Helpers ---- */
+async function post(url, body) {
+  const res = await fetch(API + url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  if (!res.ok) { const e = await res.json().catch(() => ({})); throw new Error(e.detail || res.statusText); }
+  return res.json();
+}
+
+function badgeHtml(confidence) {
+  const cls = confidence === 'high' ? 'badge-high' : confidence === 'medium' ? 'badge-medium' : 'badge-low';
+  const label = { high: '高', medium: '中', low: '低' }[confidence] || confidence;
+  return `<span class="badge ${cls}">${label}</span>`;
+}
+
+function val(v) { return (!v || v === 'X') ? '<span style="color:#d1d5db">-</span>' : v; }
+
+const FIELD_LABELS = {
+  brand_cn: '品牌', product_type: '产品类型', die_model: '晶圆型号', die_capacity: '晶圆容量',
+  chip_capacity: '颗粒容量', process_node: '制程', bit_width: '位宽', ball_count: '球位',
+  die_grade: '晶圆良率', chip_grade: '颗粒良率', technology_type: '技术类型', ddr_frequency: '频率',
+  stacking_layers: '叠层数', confidence: '置信度',
+};
+
+const CALC_LABELS = {
+  quantity: '数量', capacity_per_piece_gb: '单颗(GB)', total_capacity_gb: '总容量(GB)',
+  total_capacity_tb: '总容量(TB)', yield_percent: '良率', good_output_gb: '有效产出(GB)',
+};
+
+/* ---- 1. Parse ---- */
+function fillParse(v) { document.getElementById('parse-input').value = v; doParse(); }
+
+async function doParse() {
+  const pn = document.getElementById('parse-input').value.trim();
+  const qty = parseInt(document.getElementById('parse-qty').value) || 1;
+  if (!pn) return;
+  const box = document.getElementById('parse-result');
+  box.innerHTML = '<div class="loading">解析中...</div>';
+  try {
+    const data = await post('/calculate_json', { part_number: pn, quantity: qty });
+    let html = '<div class="param-grid">';
+    for (const [k, label] of Object.entries(FIELD_LABELS)) {
+      const v = data[k];
+      const display = (!v || v === 'X') ? '-' : (k === 'confidence' ? badgeHtml(v) : v);
+      const cls = (!v || v === 'X') ? 'value unknown' : 'value';
+      html += `<div class="param-card"><div class="label">${label}</div><div class="${cls}">${display}</div></div>`;
+    }
+    html += '</div>';
+
+    // calculation summary
+    html += '<div class="summary-bar">';
+    for (const [k, label] of Object.entries(CALC_LABELS)) {
+      const v = data[k];
+      const display = (!v || v === 'X') ? '-' : v;
+      html += `<div class="summary-item"><div class="s-label">${label}</div><div class="s-value">${display}</div></div>`;
+    }
+    html += '</div>';
+    box.innerHTML = html;
+  } catch (e) {
+    box.innerHTML = `<div style="color:var(--danger)">&#9888; ${e.message}</div>`;
+  }
+}
+
+/* ---- 2. Compare ---- */
+function addCmpRow() {
+  const n = document.querySelectorAll('.cmp-input').length + 1;
+  const div = document.createElement('div'); div.className = 'dyn-row';
+  div.innerHTML = `<input type="text" class="cmp-input" placeholder="料号 ${n}" /><button class="btn btn-danger btn-sm" onclick="removeCmpRow(this)">-</button>`;
+  document.getElementById('compare-rows').appendChild(div);
+}
+function removeCmpRow(btn) {
+  if (document.querySelectorAll('.cmp-input').length > 2) btn.parentElement.remove();
+}
+
+async function doCompare() {
+  const pns = [...document.querySelectorAll('.cmp-input')].map(i => i.value.trim()).filter(Boolean);
+  if (pns.length < 2) { alert('至少输入2个料号'); return; }
+  const box = document.getElementById('compare-result');
+  box.innerHTML = '<div class="loading">对比中...</div>';
+  try {
+    const data = await post('/compare_json', { part_numbers: pns });
+    const fields = ['part_number','brand_cn','product_type','die_model','die_capacity','chip_capacity',
+                     'bit_width','ball_count','process_node','ddr_frequency','chip_grade','die_grade',
+                     'stacking_layers','confidence'];
+    const headers = ['料号','品牌','类型','晶圆型号','晶圆容量','颗粒容量','位宽','球位','制程','频率','颗粒良率','晶圆良率','叠层','置信度'];
+    let html = '<table class="result-table"><thead><tr>';
+    headers.forEach(h => html += `<th>${h}</th>`);
+    html += '</tr></thead><tbody>';
+    data.forEach(row => {
+      html += '<tr>';
+      fields.forEach(f => {
+        const v = row[f];
+        html += `<td>${f === 'confidence' ? badgeHtml(v) : val(v)}</td>`;
+      });
+      html += '</tr>';
+    });
+    html += '</tbody></table>';
+    box.innerHTML = html;
+  } catch (e) {
+    box.innerHTML = `<div style="color:var(--danger)">&#9888; ${e.message}</div>`;
+  }
+}
+
+/* ---- 3. BOM ---- */
+function addBomRow() {
+  const div = document.createElement('div'); div.className = 'bom-row';
+  div.innerHTML = `<input type="text" class="bom-pn" placeholder="料号" /><input type="number" class="qty" value="100" min="1" placeholder="数量" /><button class="btn btn-danger btn-sm" onclick="removeBomRow(this)">-</button>`;
+  document.getElementById('bom-rows').appendChild(div);
+}
+function removeBomRow(btn) {
+  if (document.querySelectorAll('.bom-pn').length > 1) btn.parentElement.remove();
+}
+
+async function doBom() {
+  const rows = document.querySelectorAll('.bom-row');
+  const items = [];
+  rows.forEach(r => {
+    const pn = r.querySelector('.bom-pn').value.trim();
+    const qty = parseInt(r.querySelector('.qty').value) || 0;
+    if (pn && qty > 0) items.push({ part_number: pn, quantity: qty });
+  });
+  if (!items.length) { alert('请填写至少一个料号和数量'); return; }
+  const box = document.getElementById('bom-result');
+  box.innerHTML = '<div class="loading">生成中...</div>';
+  try {
+    const data = await post('/bom_json', { items });
+    const fields = ['part_number','quantity','brand_cn','product_type','chip_capacity',
+                     'capacity_per_piece_gb','total_capacity_gb','yield_percent','good_output_gb'];
+    const headers = ['料号','数量','品牌','类型','颗粒容量','单颗(GB)','总容量(GB)','良率','有效产出(GB)'];
+    let html = '<table class="result-table"><thead><tr>';
+    headers.forEach(h => html += `<th>${h}</th>`);
+    html += '</tr></thead><tbody>';
+    data.rows.forEach(row => {
+      html += '<tr>';
+      fields.forEach(f => html += `<td>${val(row[f])}</td>`);
+      html += '</tr>';
+    });
+    html += '</tbody></table>';
+
+    const s = data.summary;
+    html += '<div class="summary-bar">';
+    html += `<div class="summary-item"><div class="s-label">项目数</div><div class="s-value">${s.item_count}</div></div>`;
+    html += `<div class="summary-item"><div class="s-label">总容量</div><div class="s-value">${s.total_capacity_gb} GB</div></div>`;
+    html += `<div class="summary-item"><div class="s-label">总容量</div><div class="s-value">${s.total_capacity_tb} TB</div></div>`;
+    html += `<div class="summary-item"><div class="s-label">有效产出</div><div class="s-value">${s.total_good_output_gb} GB</div></div>`;
+    html += '</div>';
+    box.innerHTML = html;
+  } catch (e) {
+    box.innerHTML = `<div style="color:var(--danger)">&#9888; ${e.message}</div>`;
+  }
+}
+
+/* ---- 4. Chat ---- */
+function appendMsg(role, text) {
+  const box = document.getElementById('chat-box');
+  const div = document.createElement('div');
+  div.className = 'chat-msg ' + role;
+  div.innerHTML = `<div class="bubble">${text.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>`;
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
+}
+
+async function doChat() {
+  const input = document.getElementById('chat-input');
+  const q = input.value.trim();
+  if (!q) return;
+  appendMsg('user', q);
+  input.value = '';
+  try {
+    const data = await post('/chat', { query: q });
+    appendMsg('bot', data.result);
+  } catch (e) {
+    appendMsg('bot', '&#9888; 错误: ' + e.message);
+  }
+}
+</script>
+</body>
+</html>

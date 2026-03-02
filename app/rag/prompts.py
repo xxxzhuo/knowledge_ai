@@ -1,31 +1,6 @@
 """RAG Prompt 模板定义。"""
 
 from langchain_core.prompts import ChatPromptTemplate, PromptTemplate
-from langchain_core.prompts.chat import (
-    SystemMessagePromptTemplate,
-    HumanMessagePromptTemplate
-)
-
-
-# ============== 系统提示词 ==============
-
-SYSTEM_PROMPT = """你是一个专业的半导体知识助手，专门回答关于半导体技术、芯片设计、制造工艺等方面的问题。
-
-你的任务是根据提供的上下文信息，准确、专业地回答用户的问题。
-
-回答要求：
-1. 基于上下文：优先使用提供的上下文信息回答
-2. 专业准确：使用准确的技术术语和概念
-3. 结构清晰：分点阐述，逻辑清晰
-4. 引用来源：在回答中注明信息来源（如果有）
-5. 诚实谦逊：如果上下文中没有相关信息，明确说明
-6. 中文回答：使用简体中文回答
-
-上下文信息：
-{context}
-
-如果上下文信息不足以回答问题，请说明"根据提供的信息无法完全回答该问题"。
-"""
 
 
 # ============== 问答模板 ==============
@@ -47,21 +22,7 @@ QA_PROMPT = PromptTemplate(
 )
 
 
-# ============== Chat 模板 ==============
-
-CHAT_SYSTEM_MESSAGE = SystemMessagePromptTemplate.from_template(SYSTEM_PROMPT)
-
-CHAT_HUMAN_MESSAGE = HumanMessagePromptTemplate.from_template(
-    "问题：{question}"
-)
-
-CHAT_PROMPT = ChatPromptTemplate.from_messages([
-    CHAT_SYSTEM_MESSAGE,
-    CHAT_HUMAN_MESSAGE
-])
-
-
-# ============== 多轮对话模板 ==============
+# ============== 多轮对话模板 ==========================
 
 CONVERSATIONAL_PROMPT_TEMPLATE = """你是一个专业的半导体知识助手。根据对话历史和上下文信息，回答用户的问题。
 

@@ -277,13 +277,27 @@ class MilvusStore(VectorStore):
                 "params": {"nprobe": 10}
             }
             
+            # 构建过滤表达式
+            expr = None
+            if filter:
+                exprs = []
+                for key, value in filter.items():
+                    if isinstance(value, str):
+                        # 转义单引号防止注入
+                        safe_value = value.replace("'", "\\'")
+                        exprs.append(f"metadata['{key}'] == '{safe_value}'")
+                    elif isinstance(value, (int, float)):
+                        exprs.append(f"metadata['{key}'] == {value}")
+                if exprs:
+                    expr = " and ".join(exprs)
+            
             # 执行搜索
             results = self.collection.search(
                 data=[query_embedding],
                 anns_field="embedding",
                 param=search_params,
                 limit=k,
-                expr=None,  # TODO: 支持复杂过滤条件
+                expr=expr,
                 output_fields=["text", "metadata"],
                 using=_connection_alias
             )

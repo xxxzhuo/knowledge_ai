@@ -9,20 +9,10 @@ import time
 from app.database import get_db
 from app.schemas import RAGQuery, RAGResponse, RetrievedChunk
 from app.models import QueryCache
-from app.retriever import VectorRetriever
+from app.retriever import get_vector_retriever, VectorRetriever
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
-
-
-def get_vector_retriever() -> VectorRetriever:
-    """
-    获取向量检索器实例的依赖注入函数
-    
-    返回:
-        VectorRetriever: 向量检索器实例
-    """
-    return VectorRetriever()
 
 
 @router.post("/query", response_model=RAGResponse)
@@ -65,20 +55,21 @@ async def query(
         retrieved_chunks = []
         for similarity, text, metadata in retrieved_results:
             chunk = RetrievedChunk(
-                content=text,
-                score=similarity,
-                source=metadata.get("file_name", "unknown"),
-                page=metadata.get("page_start", 0)
+                chunk_id=metadata.get("chunk_id", ""),
+                chunk_text=text,
+                similarity_score=similarity,
+                doc_name=metadata.get("file_name", "unknown"),
+                page_start=metadata.get("page_start"),
+                page_end=metadata.get("page_end")
             )
             retrieved_chunks.append(chunk)
         
-        # 3. 生成响应（占位答案，实际应用中应使用 LLM 生成）
+        # 3. 生成响应
         processing_time = (time.time() - start_time) * 1000  # 转换为毫秒
         
-        # 简单的答案生成逻辑（占位）
         if retrieved_chunks:
-            answer = f"基于检索到的文档，我可以提供以下信息: {retrieved_chunks[0].content[:100]}..."
-            confidence_score = retrieved_chunks[0].score
+            answer = f"基于检索到的文档，我可以提供以下信息: {retrieved_chunks[0].chunk_text[:100]}..."
+            confidence_score = retrieved_chunks[0].similarity_score
         else:
             answer = "抱歉，我没有找到与您的问题相关的信息。"
             confidence_score = 0.0
@@ -116,9 +107,9 @@ async def batch_query(
     """批量查询处理端点。"""
     
     results = []
+    background_tasks = BackgroundTasks()
     for q in queries:
-        # 为单条查询创建副本以便独立处理
-        result = await query(q, BackgroundTasks(), db, vector_retriever)
+        result = await query(q, background_tasks, db, vector_retriever)
         results.append(result)
     
     return {

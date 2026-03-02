@@ -29,8 +29,8 @@ class OpenAIEmbeddingService(EmbeddingService):
         self.api_key = api_key or settings.openai_api_key
         self.embedding_dimension = settings.vector_dimension
         
-        # 配置 OpenAI 客户端
-        openai.api_key = self.api_key
+        # 创建 OpenAI 客户端实例（避免设置全局 api_key，并发安全）
+        self._client = openai.OpenAI(api_key=self.api_key)
         
         logger.info(f"初始化 OpenAI Embedding 服务，模型: {self.model_name}")
 
@@ -49,7 +49,11 @@ class OpenAIEmbeddingService(EmbeddingService):
             List[float]: 文本的向量表示
         """
         try:
-            response = openai.embeddings.create(
+            if not text or not text.strip():
+                logger.warning("尝试向量化空文本，返回零向量")
+                return [0.0] * self.embedding_dimension
+            
+            response = self._client.embeddings.create(
                 input=text,
                 model=self.model_name
             )
@@ -80,7 +84,7 @@ class OpenAIEmbeddingService(EmbeddingService):
             embeddings = []
             for i in range(0, len(texts), batch_size):
                 batch = texts[i:i + batch_size]
-                response = openai.embeddings.create(
+                response = self._client.embeddings.create(
                     input=batch,
                     model=self.model_name
                 )

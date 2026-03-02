@@ -1,380 +1,235 @@
-# Semiconductor Knowledge AI  
+# Semiconductor Knowledge AI
 
-分层、解耦、可扩展的RAG + LLM知识库系统，专为半导体行业设计。
+半导体行业 RAG + Agent 知识库系统，支持存储芯片料号智能解析、文档检索问答和可视化分析。
 
-## 🎯 项目特点
+## 项目特点
 
-- **完整 RAG Chain**: Retriever + LCEL + Rerank 完整实现
-- **本地化部署**: Ollama (qwen2.5) + embeddinggemma，零 API 成本
-- **大厂级架构**: 分层设计 + 解耦 + 可扩展
-- **LangChain 1.0**: 最新 LCEL + 流式输出支持
-- **智能重排序**: Simple / CrossEncoder / Hybrid 三种策略
-- **工业级指标**: 可观测性、监控完善
-- **容器化部署**: Docker + Docker Compose
+- **存储芯片料号解析 Agent**: 支持镁光/SpecTek/三星/海力士/长江存储/英特尔/闪迪，覆盖 NAND 颗粒、DDR 颗粒、NAND 晶圆、服务器内存模组
+- **完整 RAG Chain**: Retriever + LCEL + Reranker (Simple / CrossEncoder / Hybrid)
+- **前端可视化**: 单页应用，料号解析/对比/BOM 生成/智能问答四大功能
+- **本地化部署**: Ollama (qwen2.5:7b) + embeddinggemma，零 API 成本
+- **LangChain 1.0**: LCEL 声明式链路 + 流式输出
+- **容器化**: Docker Compose 一键编排
 
-## ✨ 核心功能
-
-### 🔍 RAG 检索增强生成
-- ✅ 向量检索 (Milvus + 768维 embeddinggemma)
-- ✅ 智能重排序 (3种策略可选)
-- ✅ LCEL 声明式链路
-- ✅ 流式 + 异步支持
-- ✅ 多轮对话
-
-### 📚 文档处理
-- ✅ PDF、图片、表格多格式支持
-- ✅ 智能分块 (半导体领域定制)
-- ✅ 向量化存储
-
-### 🤖 LLM 集成
-- ✅ Ollama 本地推理 (qwen2.5:7b)
-- ✅ OpenAI 兼容
-- ✅ 多种 Prompt 模板
-
-## 📦 技术栈
+## 技术栈
 
 | 层级 | 技术 | 说明 |
 |------|------|------|
-| API | FastAPI | 高性能异步框架 |
-| LLM | Ollama (qwen2.5:7b) | 本地大语言模型 |
-| Embedding | embeddinggemma | 本地向量化 (768维) |
-| RAG框架 | LangChain 1.0 + LCEL | 声明式链路构建 |
-| 向量库 | Milvus 2.3.11 | 高性能向量检索 |
+| 前端 | HTML / CSS / JS | 单页应用，无外部依赖 |
+| API | FastAPI | 异步高性能 |
+| Agent | 自研 PartNumberParser + StorageChipAgent | 料号解析 / 工具编排 |
+| LLM | Ollama (qwen2.5:7b) / OpenAI | 可切换 |
+| Embedding | embeddinggemma / text-embedding-3-large | 768 维向量 |
+| RAG | LangChain 1.0 + LCEL | 检索增强生成 |
+| 向量库 | Milvus 2.3 | 高性能向量检索 |
 | 数据库 | PostgreSQL | 元数据存储 |
-| 重排序 | Hybrid Reranker | 多策略融合 |
-| 部署 | Docker Compose | 容器化编排 |
+| 部署 | Docker Compose | Milvus + PostgreSQL + App |
 
-## 🚀 快速开始
+## 快速开始
 
-### 前提条件
+### 环境要求
+
 - Python 3.11+
-- Docker 20.10+
-- PostgreSQL 15+ (可选，Docker提供)
+- PostgreSQL 15+ (可选，Docker 提供)
+- Docker 20.10+ (可选)
 
-### 1. 环境配置
+### 安装 & 启动
 
 ```bash
-# 克隆项目
+# 克隆
+git clone git@github.com:xxxzhuo/knowledge_ai.git
 cd knowledge_ai
 
-# 创建虚拟环境
-python3 -m venv venv
-source venv/bin/activate
-
-# 安装依赖
+# 虚拟环境
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 
-# 复制环境配置
+# 配置
 cp .env.example .env
+# 编辑 .env 设置数据库、Ollama 等参数
+
+# 启动
+cd knowledge_ai
+python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-### 2. 配置环境变量
+浏览器访问 **http://localhost:8000** 即可打开前端页面。
 
-编辑 `.env` 文件：
+API 文档: **http://localhost:8000/docs**
 
-```env
-# Database
-DATABASE_URL=postgresql://postgres:password@localhost:5432/knowledge_ai
-
-# LLM Config
-OPENAI_API_KEY=your_key_here
-OPENAI_MODEL=gpt-4
-
-# Vector Store
-MILVUS_HOST=localhost
-MILVUS_PORT=19530
-
-# Storage
-STORAGE_TYPE=local
-```
-
-### 3. 启动服务
-
-**选项 A: 使用 Docker Compose (推荐)**
+### Docker 方式
 
 ```bash
 cd docker
 docker-compose up -d
-
-# 等待所有服务启动（约30秒）
-docker-compose ps
 ```
 
-**选项 B: 本地开发**
+## 前端功能
+
+访问 `http://localhost:8000` 打开可视化界面，包含四个标签页:
+
+| 标签 | 功能 | 说明 |
+|------|------|------|
+| 料号解析 | 输入料号 + 数量 | 卡片式展示品牌/晶圆型号/容量/制程/位宽/球位/良率等，自动计算总容量和有效产出 |
+| 料号对比 | 多料号横向对比 | 表格展示所有参数差异 |
+| BOM 清单 | 料号 × 数量列表 | 生成 BOM 汇总表，统计总容量/有效产出 |
+| 智能问答 | 自然语言交互 | Agent 自动路由到解析/对比/BOM/搜索工具 |
+
+## API 端点
+
+### Agent (料号解析)
 
 ```bash
-# 初始化数据库
-python scripts/init_db.py
+# 解析料号 (JSON)
+POST /api/v1/agent/parse_json
+{"part_number": "FBMB47R128G8ABAEAWG5-AS"}
 
-# 加载测试数据
-python scripts/seed_data.py
+# 参数计算 (JSON)
+POST /api/v1/agent/calculate_json
+{"part_number": "FBMB47R128G8ABAEAWG5-AS", "quantity": 100}
 
-# 启动应用
-python main.py
+# 多料号对比 (JSON)
+POST /api/v1/agent/compare_json
+{"part_numbers": ["FBMB47R128G8ABAEAWG5-AS", "SUM123Z32512M8-TP"]}
+
+# BOM 生成 (JSON)
+POST /api/v1/agent/bom_json
+{"items": [{"part_number": "FBMB47R128G8ABAEAWG5-AS", "quantity": 100}]}
+
+# Agent 智能问答
+POST /api/v1/agent/chat
+{"query": "解析 FBMB47R128G8ABAEAWG5-AS"}
 ```
 
-### 4. 验证安装
+### RAG 检索
 
 ```bash
-# API Health Check
-curl http://localhost:8000/api/v1/health
-
-# 应该看到:
-# {
-#   "status": "healthy",
-#   "database": "healthy",
-#   "vector_store": "unknown",
-#   "embeddings_service": "unknown",
-#   "timestamp": "2026-02-27T..."
-# }
+POST /api/v1/query         # 单条问答
+POST /api/v1/query/batch   # 批量查询
 ```
 
-## 📚 API 文档
-
-启动后自动生成 Swagger 文档：
-
-```
-http://localhost:8000/docs
-```
-
-### 核心端点
-
-#### 1. 文档管理
+### 文档管理
 
 ```bash
-# 列出文档
-GET /api/v1/documents?skip=0&limit=10
-
-# 获取文档详情
-GET /api/v1/documents/{doc_id}
-
-# 上传新文档
-POST /api/v1/documents
-{
-  "file_name": "example.pdf",
-  "vendor": "Intel",
-  "category": "CPU"
-}
-
-# 删除文档
-DELETE /api/v1/documents/{doc_id}
+GET    /api/v1/documents          # 文档列表
+GET    /api/v1/documents/{id}     # 文档详情
+POST   /api/v1/documents          # 上传文档
+DELETE /api/v1/documents/{id}     # 删除文档
 ```
 
-#### 2. RAG查询
-
-```bash
-# 提问
-POST /api/v1/query
-{
-  "question": "Intel i7的时钟频率是多少?",
-  "top_k": 5,
-  "use_rerank": true
-}
-
-# 批量查询
-POST /api/v1/query/batch
-[
-  { "question": "..." },
-  { "question": "..." }
-]
-```
-
-#### 3. 健康检查
+### 健康检查
 
 ```bash
 GET /api/v1/health
 GET /api/v1/status
 ```
 
-## 📁 项目结构
+## 项目结构
 
 ```
 knowledge_ai/
-├── app/                           # 应用主目录
+├── app/
 │   ├── api/                       # FastAPI 路由
-│   │   ├── health.py              # 健康检查
+│   │   ├── agent.py               # Agent 料号解析 API
 │   │   ├── documents.py           # 文档管理
-│   │   └── rag.py                 # RAG查询
-│   ├── agent/                     # LangChain Agent (待实现)
-│   ├── rag/                       # RAG核心逻辑 (待实现)
-│   ├── retriever/                 # 检索模块 (待实现)
-│   ├── embeddings/                # Embedding服务 (待实现)
-│   ├── loaders/                   # 文档加载器 (待实现)
-│   ├── chunking/                  # 分块策略 (待实现)
-│   ├── metadata/                  # 元数据管理 (待实现)
-│   ├── storage/                   # 存储接口 (待实现)
+│   │   ├── health.py              # 健康检查
+│   │   ├── processing.py          # 文档处理
+│   │   └── rag.py                 # RAG 查询
+│   ├── agent/                     # 料号解析 Agent
+│   │   ├── agent.py               # StorageChipAgent 工具编排
+│   │   ├── part_number_parser.py  # 料号解析器 (8 大规则)
+│   │   └── tools.py               # Agent 工具函数
+│   ├── rag/                       # RAG 核心
+│   │   ├── chain.py               # LCEL 链路
+│   │   ├── prompts.py             # Prompt 模板
+│   │   └── reranker.py            # 重排序 (Simple/CE/Hybrid)
+│   ├── retriever/                 # 检索模块
+│   │   ├── base.py                # 检索器基类
+│   │   └── vector_retriever.py    # 向量检索
+│   ├── embeddings/                # Embedding 服务
+│   │   ├── ollama_embedding.py    # Ollama 本地向量化
+│   │   └── openai_embedding.py    # OpenAI 向量化
+│   ├── loaders/                   # 文档加载器
+│   │   ├── pdf_loader.py          # PDF 解析
+│   │   ├── image_loader.py        # 图片 OCR
+│   │   └── table_extractor.py     # 表格提取
+│   ├── chunking/                  # 分块策略
+│   │   ├── semiconductor_splitter.py  # 半导体领域分块
+│   │   └── table_aware_chunker.py     # 表格感知分块
+│   ├── storage/                   # 向量存储
+│   │   ├── milvus_store.py        # Milvus 存储
+│   │   └── vector_store.py        # 通用接口
+│   ├── static/                    # 前端页面
+│   │   └── index.html             # 单页应用
 │   ├── config.py                  # 配置管理
-│   ├── database.py                # 数据库连接
+│   ├── database.py                # PostgreSQL 连接
 │   ├── models.py                  # SQLAlchemy ORM
-│   ├── schemas.py                 # Pydantic schemas
-│   └── main.py                    # FastAPI应用
-│
-├── scripts/                       # 辅助脚本
-│   ├── init_db.py                 # 初始化数据库
-│   └── seed_data.py               # 加载测试数据
-│
-├── docker/                        # Docker配置
+│   ├── schemas.py                 # Pydantic Schemas
+│   └── main.py                    # FastAPI 应用工厂
+├── docker/
+│   ├── docker-compose.yml         # 服务编排
 │   ├── Dockerfile                 # 应用容器
-│   ├── docker-compose.yml         # 多服务编排
 │   └── prometheus.yml             # 监控配置
-│
-├── tests/                         # 单元测试
-├── main.py                        # 应用入口
-├── requirements.txt               # 依赖列表
-├── .env.example                   # 环境变量示例
-└── README.md                      # 本文件
+├── scripts/                       # 辅助脚本
+├── tests/                         # 测试
+├── main.py                        # 入口
+├── requirements.txt               # 依赖
+└── .env.example                   # 环境变量模板
 ```
 
-## 🔧 开发指南
+## 料号解析规则
 
-### 添加新的API端点
+解析器支持 8 大规则，覆盖存储芯片料号的完整参数提取:
 
-在 `app/api/` 中创建新的路由文件：
+| 规则 | 说明 | 示例 |
+|------|------|------|
+| 品牌识别 | 前缀 → 品牌 + 产品类型 | FBM → 镁光 NAND 颗粒 |
+| 晶圆型号 | NAND: 第 4-8 位; DDR: 第 7-14 位 | B47R, Z32x |
+| 晶圆容量 | 型号第 3 位数字映射 | 7 → 64GB |
+| 颗粒容量 | NAND: left/8; DDR: left×right/8 | 128G8 → 16G |
+| 位宽 | NAND: H/K/L; DDR: 4/8/16/32/64 | K → X8 |
+| 制程 | 型号首字母 M/L/B/N | B → TLC |
+| 球位 | NAND: '-' 左 2 位; DDR: 代数×位宽 | G5 → 272 |
+| 良率 | 晶圆: E+数字; 颗粒: 后缀字母 | E9 → 90%, AS → 96% |
 
-```python
-# app/api/new_feature.py
-from fastapi import APIRouter
+支持品牌: 镁光 (FBM/SUM/MT29)、SpecTek (FBN/FBC/SUN/SUU/XCB/PRM/PRN/W)、三星 (K9/M321/M393)、海力士 (H25)、长江存储 (YMN)、英特尔 (X29)、闪迪 (SD)
 
-router = APIRouter()
+## 环境变量
 
-@router.get("/new-feature")
-def new_feature():
-    return {"message": "New feature"}
-```
+| 变量 | 说明 | 默认值 |
+|------|------|--------|
+| DATABASE_URL | PostgreSQL 连接 | postgresql://postgres:password@localhost:5432/knowledge_ai |
+| OLLAMA_HOST | Ollama 服务地址 | http://localhost:11434 |
+| OLLAMA_LLM_MODEL | LLM 模型 | qwen2.5:7b |
+| OLLAMA_EMBEDDING_MODEL | Embedding 模型 | embeddinggemma |
+| EMBEDDING_SERVICE | Embedding 服务类型 | ollama |
+| RAG_LLM_TYPE | RAG LLM 类型 | ollama |
+| RAG_RERANKER_TYPE | 重排序策略 | simple |
+| MILVUS_HOST | Milvus 地址 | localhost |
+| OPENAI_API_KEY | OpenAI 密钥 (可选) | - |
 
-在 `app/main.py` 中注册：
-
-```python
-from app.api import new_feature
-app.include_router(new_feature.router, prefix="/api/v1", tags=["NewFeature"])
-```
-
-### 数据库迁移
+## 故障排查
 
 ```bash
-# 创建表
-python scripts/init_db.py
-
-# 重置数据库（谨慎使用）
-python scripts/init_db.py drop
-```
-
-### 运行测试
-
-```bash
-pytest tests/ -v
-```
-
-## 📊 监控和日志
-
-### Prometheus 指标
-
-访问 metrics 端点：
-```
-http://localhost:9090
-```
-
-### 应用日志
-
-```bash
-# 查看 API 服务日志
-docker logs knowledge_ai_api -f
-
-# 本地运行时
-# 日志输出到控制台
-```
-
-## 🔄 工作流程概览
-
-### 第1阶段 ✅ (当前)
-- [x] 项目结构
-- [x] FastAPI应用框架
-- [x] PostgreSQL集成
-- [x] Docker容器化
-
-### 第2阶段 (下一步)
-- [ ] 文档加载器 (PDF, OCR)
-- [ ] 智能分块器
-- [ ] Embedding服务
-- [ ] 向量存储集成
-
-### 第3阶段
-- [ ] Hybrid Retriever
-- [ ] Reranker精排
-- [ ] RAG Chain
-- [ ] 缓存优化
-
-### 第4阶段
-- [ ] Agent定义
-- [ ] Tool集成
-- [ ] 质量评估
-- [ ] 性能优化
-
-### 第5阶段
-- [ ] Kubernetes部署
-- [ ] 监控告警
-- [ ] 文档完善
-- [ ] 生产就绪
-
-## 🐛 故障排查
-
-### 数据库连接失败
-
-```bash
-# 检查PostgreSQL状态
-docker ps
-
-# 查看日志
-docker logs knowledge_ai_postgres
-
-# 手动连接测试
-psql -h localhost -U postgres -d knowledge_ai
-```
-
-### API无法启动
-
-```bash
-# 检查端口占用
+# 端口占用
 lsof -i :8000
 
-# 查看错误日志
-python main.py
-```
+# 数据库连接 (数据库不可用时 Agent 功能仍正常)
+psql -h localhost -U postgres -d knowledge_ai
 
-### Milvus连接问题
-
-```bash
-# 检查Milvus状态
+# Milvus 状态
 curl http://localhost:9091/healthz
 
-# 重启Milvus
-docker restart knowledge_ai_milvus
+# 查看日志
+docker logs knowledge_ai_api -f
 ```
 
-## 📝 环境变量详解
-
-| 变量 | 说明 | 示例 |
-|------|------|------|
-| DATABASE_URL | PostgreSQL连接 | postgresql://user:pass@localhost/db |
-| OPENAI_API_KEY | OpenAI API密钥 | sk-xxx |
-| OPENAI_MODEL | 使用的模型 | gpt-4 |
-| VECTOR_STORE_TYPE | 向量库类型 | milvus/faiss/pgvector |
-| STORAGE_TYPE | 存储类型 | local/s3/minio |
-| LOG_LEVEL | 日志级别 | INFO/DEBUG/WARNING |
-
-## 📞 支持和反馈
-
-遇到问题或有建议？
-
-- 查看 [故障排查](#-故障排查) 章节
-- 提交 Issue
-- 联系开发团队
-
-## 📄 许可证
+## 许可证
 
 MIT License
 
 ---
 
-**版本**: 0.1.0  
-**最后更新**: 2026年2月27日
+**版本**: 0.2.0  
+**最后更新**: 2026-03-02

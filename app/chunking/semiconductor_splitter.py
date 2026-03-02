@@ -127,7 +127,7 @@ class SemiconductorTextSplitter(BaseChunker):
         text = re.sub(r'\n{3,}', '\n\n', text)
 
         # 修复被破坏的单位和数值
-        text = re.sub(r'(\d+)\s+(GHz|MHz|MHz|ms|us|ns|V|A|W|Ω)', r'\1\2', text)
+        text = re.sub(r'(\d+)\s+(GHz|MHz|kHz|ms|us|ns|V|A|W|Ω)', r'\1\2', text)
 
         return text.strip()
 

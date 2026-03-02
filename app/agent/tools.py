@@ -6,10 +6,16 @@ from app.agent.part_number_parser import PartNumberParser
 parser = PartNumberParser()
 
 
-def _format_part_table(result: dict) -> str:
+def _get_grade(result: dict) -> str:
+    """从解析结果中获取良率等级，优先取 chip_grade，回退到 die_grade"""
     grade = result.get("chip_grade", "X")
     if grade == "X":
         grade = result.get("die_grade", "X")
+    return grade
+
+
+def _format_part_table(result: dict) -> str:
+    grade = _get_grade(result)
 
     return (
         "|品牌名称|晶圆型号|晶圆容量|颗粒容量|位宽|制程|球位|良率|叠代|\n"
@@ -63,9 +69,7 @@ def compare_part_numbers(payload: str) -> str:
         ]
         for idx, row in enumerate(rows):
             pn = part_numbers[idx]
-            grade = row.get("chip_grade", "X")
-            if grade == "X":
-                grade = row.get("die_grade", "X")
+            grade = _get_grade(row)
             lines.append(
                 f"|{pn}|{row.get('brand_cn', 'X')}|{row.get('product_type', 'X')}|{row.get('die_model', 'X')}|"
                 f"{row.get('die_capacity', 'X')}|{row.get('chip_capacity', 'X')}|{row.get('bit_width', 'X')}|"
@@ -91,9 +95,7 @@ def generate_bom(payload: str) -> str:
         ]
 
         for row in bom["rows"]:
-            grade = row.get("chip_grade", "X")
-            if grade == "X":
-                grade = row.get("die_grade", "X")
+            grade = _get_grade(row)
             lines.append(
                 f"|{row.get('brand_code', 'X')}:{row.get('die_model', 'X')}|{row.get('quantity', '0')}|{row.get('brand_cn', 'X')}|"
                 f"{row.get('product_type', 'X')}|{row.get('chip_capacity', 'X')}|{row.get('capacity_per_piece_gb', 'X')}|"

@@ -140,7 +140,7 @@ async def update_document(
     if not db_document:
         raise HTTPException(status_code=404, detail="Document not found")
     
-    update_data = document_update.dict(exclude_unset=True)
+    update_data = document_update.model_dump(exclude_unset=True)
     for field, value in update_data.items():
         setattr(db_document, field, value)
     

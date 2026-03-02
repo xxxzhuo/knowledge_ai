@@ -1,9 +1,11 @@
 """应用工厂。"""
 
 import logging
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, RedirectResponse
+from fastapi.staticfiles import StaticFiles
 
 from app.config import get_settings
 from app.database import init_db
@@ -47,6 +49,14 @@ def create_app() -> FastAPI:
     app.include_router(rag.router, prefix="/api/v1", tags=["RAG"])
     app.include_router(processing.router, tags=["Document Processing"])
     app.include_router(agent.router, prefix="/api/v1", tags=["Agent"])
+
+    # 挂载静态文件（前端页面）
+    static_dir = os.path.join(os.path.dirname(__file__), "static")
+    app.mount("/static", StaticFiles(directory=static_dir, html=True), name="static")
+
+    @app.get("/", include_in_schema=False)
+    async def root_redirect():
+        return RedirectResponse(url="/static/index.html")
     
     # 异常处理器
     @app.exception_handler(Exception)
