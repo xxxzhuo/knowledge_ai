@@ -8,7 +8,7 @@ import logging
 
 from app.database import get_db
 from app.schemas import HealthStatus
-from app.storage import get_milvus_store
+from app.storage import get_vector_store
 from app.embeddings import get_embedding_service
 
 router = APIRouter()
@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 def check_vector_store() -> str:
     """检查向量库健康状态"""
     try:
-        vector_store = get_milvus_store()
+        vector_store = get_vector_store()
         if vector_store.is_healthy():
             return "healthy"
         else:
@@ -91,12 +91,15 @@ async def health_check(db: Session = Depends(get_db)) -> HealthStatus:
 async def vector_store_health() -> dict:
     """获取向量库详细的健康信息"""
     try:
-        vector_store = get_milvus_store()
+        vector_store = get_vector_store()
         stats = {
             "status": "healthy" if vector_store.is_healthy() else "unhealthy",
             "vector_count": vector_store.count(),
-            "collection_name": vector_store.collection_name
+            "backend": type(vector_store).__name__,
         }
+        # 兼容 Milvus 的 collection_name 属性
+        if hasattr(vector_store, 'collection_name'):
+            stats["collection_name"] = vector_store.collection_name
         return stats
     except Exception as e:
         logger.error(f"向量库详细信息获取失败: {str(e)}")

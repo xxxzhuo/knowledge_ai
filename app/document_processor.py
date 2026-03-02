@@ -25,7 +25,7 @@ from app.chunking import (
     TableAwareChunker,
 )
 from app.embeddings import get_embedding_service, EmbeddingService
-from app.storage import MilvusStore
+from app.storage import get_vector_store
 
 logger = logging.getLogger(__name__)
 
@@ -137,7 +137,7 @@ class DocumentProcessor:
         # 初始化 Embedding 服务和向量存储
         if enable_embedding:
             self.embedding_service = get_embedding_service()
-            self.vector_store = MilvusStore()
+            self.vector_store = get_vector_store()
         else:
             self.embedding_service = None
             self.vector_store = None

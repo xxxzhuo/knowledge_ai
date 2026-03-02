@@ -5,7 +5,7 @@ from typing import List, Dict, Any, Optional, Tuple
 
 from app.retriever.base import Retriever
 from app.embeddings import get_embedding_service, EmbeddingService
-from app.storage import MilvusStore
+from app.storage import VectorStore, get_vector_store
 
 logger = logging.getLogger(__name__)
 
@@ -23,17 +23,17 @@ class VectorRetriever(Retriever):
     def __init__(
         self,
         embedding_service: Optional[EmbeddingService] = None,
-        vector_store: Optional[MilvusStore] = None
+        vector_store: Optional[VectorStore] = None
     ):
         """
         初始化向量检索器
         
         参数:
             embedding_service: Embedding 服务实例
-            vector_store: 向量存储实例
+            vector_store: 向量存储实例 (支持 Milvus / Aliyun 等后端)
         """
         self.embedding_service = embedding_service or get_embedding_service()
-        self.vector_store = vector_store or MilvusStore()
+        self.vector_store = vector_store or get_vector_store()
         
         logger.info("初始化向量检索器")
 
@@ -168,10 +168,11 @@ class VectorRetriever(Retriever):
         try:
             count = self.vector_store.count()
             is_healthy = self.vector_store.is_healthy()
+            store_type = type(self.vector_store).__name__
             return {
                 "vector_count": count,
                 "is_healthy": is_healthy,
-                "store_type": "milvus"
+                "store_type": store_type
             }
         except Exception as e:
             logger.error(f"获取统计信息失败: {str(e)}")

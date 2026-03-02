@@ -48,10 +48,20 @@ class Settings(BaseSettings):
     rag_min_similarity: float = 0.3
 
     # 向量库配置
-    vector_store_type: Literal["faiss", "milvus", "pgvector"] = "milvus"
+    vector_store_type: Literal["faiss", "milvus", "pgvector", "aliyun"] = "milvus"
     milvus_host: str = "localhost"
     milvus_port: int = 19530
     vector_dimension: int = 768  # embeddinggemma: 768, text-embedding-3-large: 1536
+
+    # 阿里云向量存储 (OSS + 向量检索) 配置
+    aliyun_oss_access_key_id: str = ""
+    aliyun_oss_access_key_secret: str = ""
+    aliyun_oss_endpoint: str = ""           # e.g. https://oss-cn-shenzhen.aliyuncs.com
+    aliyun_oss_bucket_name: str = ""        # e.g. semiconductor-vectors
+    aliyun_oss_prefix: str = "embeddings"   # OSS 对象键前缀
+    aliyun_vector_batch_size: int = 500     # 批量写入大小 (500-1000)
+    aliyun_search_endpoint: str = ""        # 阿里云向量检索服务 endpoint (可选)
+    aliyun_search_instance_id: str = ""     # 向量检索实例ID (可选)
 
     # 存储配置
     storage_type: Literal["s3", "minio", "local"] = "local"
