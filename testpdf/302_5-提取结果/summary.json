@@ -1,18 +1,18 @@
 {
-  "input_pdf": "knowledge_ai/testpdf/302_5.PDF",
+  "input_pdf": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/302_5.PDF",
   "page_range": "all",
   "page_count": 2,
-  "output_dir": "knowledge_ai/testpdf/302_5-提取结果",
+  "output_dir": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/302_5-提取结果",
   "images": {
     "count": 2,
     "items": [
       {
         "page": 1,
-        "file": "knowledge_ai/testpdf/302_5-提取结果/images/page-1-image-1.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/302_5-提取结果/images/page-1-image-1.png"
       },
       {
         "page": 2,
-        "file": "knowledge_ai/testpdf/302_5-提取结果/images/page-2-image-1.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/302_5-提取结果/images/page-2-image-1.png"
       }
     ]
   },
@@ -21,11 +21,11 @@
     "items": [
       {
         "page": 1,
-        "file": "knowledge_ai/testpdf/302_5-提取结果/text/page-1.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/302_5-提取结果/text/page-1.txt"
       },
       {
         "page": 2,
-        "file": "knowledge_ai/testpdf/302_5-提取结果/text/page-2.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/302_5-提取结果/text/page-2.txt"
       }
     ]
   },

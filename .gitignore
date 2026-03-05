@@ -50,3 +50,4 @@ postgres_data/
 
 # === Vector Store ===
 milvus_data/
+scripts/.embedding_cache.pkl

@@ -1,90 +1,90 @@
 {
-  "input_pdf": "knowledge_ai/testpdf/255.PDF",
+  "input_pdf": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255.PDF",
   "page_range": "all",
   "page_count": 20,
-  "output_dir": "knowledge_ai/testpdf/255-提取结果",
+  "output_dir": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果",
   "images": {
     "count": 20,
     "items": [
       {
         "page": 1,
-        "file": "knowledge_ai/testpdf/255-提取结果/images/page-1-image-1.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/images/page-1-image-1.png"
       },
       {
         "page": 3,
-        "file": "knowledge_ai/testpdf/255-提取结果/images/page-3-image-1.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/images/page-3-image-1.png"
       },
       {
         "page": 4,
-        "file": "knowledge_ai/testpdf/255-提取结果/images/page-4-image-1.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/images/page-4-image-1.png"
       },
       {
         "page": 4,
-        "file": "knowledge_ai/testpdf/255-提取结果/images/page-4-image-2.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/images/page-4-image-2.png"
       },
       {
         "page": 5,
-        "file": "knowledge_ai/testpdf/255-提取结果/images/page-5-image-1.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/images/page-5-image-1.png"
       },
       {
         "page": 5,
-        "file": "knowledge_ai/testpdf/255-提取结果/images/page-5-image-2.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/images/page-5-image-2.png"
       },
       {
         "page": 5,
-        "file": "knowledge_ai/testpdf/255-提取结果/images/page-5-image-3.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/images/page-5-image-3.png"
       },
       {
         "page": 6,
-        "file": "knowledge_ai/testpdf/255-提取结果/images/page-6-image-1.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/images/page-6-image-1.png"
       },
       {
         "page": 6,
-        "file": "knowledge_ai/testpdf/255-提取结果/images/page-6-image-2.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/images/page-6-image-2.png"
       },
       {
         "page": 6,
-        "file": "knowledge_ai/testpdf/255-提取结果/images/page-6-image-3.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/images/page-6-image-3.png"
       },
       {
         "page": 7,
-        "file": "knowledge_ai/testpdf/255-提取结果/images/page-7-image-1.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/images/page-7-image-1.png"
       },
       {
         "page": 7,
-        "file": "knowledge_ai/testpdf/255-提取结果/images/page-7-image-2.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/images/page-7-image-2.png"
       },
       {
         "page": 8,
-        "file": "knowledge_ai/testpdf/255-提取结果/images/page-8-image-1.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/images/page-8-image-1.png"
       },
       {
         "page": 8,
-        "file": "knowledge_ai/testpdf/255-提取结果/images/page-8-image-2.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/images/page-8-image-2.png"
       },
       {
         "page": 8,
-        "file": "knowledge_ai/testpdf/255-提取结果/images/page-8-image-3.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/images/page-8-image-3.png"
       },
       {
         "page": 10,
-        "file": "knowledge_ai/testpdf/255-提取结果/images/page-10-image-1.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/images/page-10-image-1.png"
       },
       {
         "page": 10,
-        "file": "knowledge_ai/testpdf/255-提取结果/images/page-10-image-2.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/images/page-10-image-2.png"
       },
       {
         "page": 12,
-        "file": "knowledge_ai/testpdf/255-提取结果/images/page-12-image-1.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/images/page-12-image-1.png"
       },
       {
         "page": 12,
-        "file": "knowledge_ai/testpdf/255-提取结果/images/page-12-image-2.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/images/page-12-image-2.png"
       },
       {
         "page": 12,
-        "file": "knowledge_ai/testpdf/255-提取结果/images/page-12-image-3.png"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/images/page-12-image-3.png"
       }
     ]
   },
@@ -93,83 +93,83 @@
     "items": [
       {
         "page": 1,
-        "file": "knowledge_ai/testpdf/255-提取结果/text/page-1.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/text/page-1.txt"
       },
       {
         "page": 2,
-        "file": "knowledge_ai/testpdf/255-提取结果/text/page-2.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/text/page-2.txt"
       },
       {
         "page": 3,
-        "file": "knowledge_ai/testpdf/255-提取结果/text/page-3.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/text/page-3.txt"
       },
       {
         "page": 4,
-        "file": "knowledge_ai/testpdf/255-提取结果/text/page-4.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/text/page-4.txt"
       },
       {
         "page": 5,
-        "file": "knowledge_ai/testpdf/255-提取结果/text/page-5.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/text/page-5.txt"
       },
       {
         "page": 6,
-        "file": "knowledge_ai/testpdf/255-提取结果/text/page-6.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/text/page-6.txt"
       },
       {
         "page": 7,
-        "file": "knowledge_ai/testpdf/255-提取结果/text/page-7.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/text/page-7.txt"
       },
       {
         "page": 8,
-        "file": "knowledge_ai/testpdf/255-提取结果/text/page-8.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/text/page-8.txt"
       },
       {
         "page": 9,
-        "file": "knowledge_ai/testpdf/255-提取结果/text/page-9.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/text/page-9.txt"
       },
       {
         "page": 10,
-        "file": "knowledge_ai/testpdf/255-提取结果/text/page-10.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/text/page-10.txt"
       },
       {
         "page": 11,
-        "file": "knowledge_ai/testpdf/255-提取结果/text/page-11.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/text/page-11.txt"
       },
       {
         "page": 12,
-        "file": "knowledge_ai/testpdf/255-提取结果/text/page-12.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/text/page-12.txt"
       },
       {
         "page": 13,
-        "file": "knowledge_ai/testpdf/255-提取结果/text/page-13.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/text/page-13.txt"
       },
       {
         "page": 14,
-        "file": "knowledge_ai/testpdf/255-提取结果/text/page-14.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/text/page-14.txt"
       },
       {
         "page": 15,
-        "file": "knowledge_ai/testpdf/255-提取结果/text/page-15.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/text/page-15.txt"
       },
       {
         "page": 16,
-        "file": "knowledge_ai/testpdf/255-提取结果/text/page-16.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/text/page-16.txt"
       },
       {
         "page": 17,
-        "file": "knowledge_ai/testpdf/255-提取结果/text/page-17.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/text/page-17.txt"
       },
       {
         "page": 18,
-        "file": "knowledge_ai/testpdf/255-提取结果/text/page-18.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/text/page-18.txt"
       },
       {
         "page": 19,
-        "file": "knowledge_ai/testpdf/255-提取结果/text/page-19.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/text/page-19.txt"
       },
       {
         "page": 20,
-        "file": "knowledge_ai/testpdf/255-提取结果/text/page-20.txt"
+        "file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/text/page-20.txt"
       }
     ]
   },
@@ -180,7 +180,7 @@
         "page": 3,
         "table_index": 1,
         "rows": 6,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-3-table-1.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-3-table-1.csv",
         "data": [
           [
             "",
@@ -260,7 +260,7 @@
         "page": 3,
         "table_index": 2,
         "rows": 1,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-3-table-2.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-3-table-2.csv",
         "data": [
           [
             "Tested and Certified by WQA against NSF/ANSI Standard 44 & NSF/ANSI 372 for “lead free” compliance.",
@@ -272,7 +272,7 @@
         "page": 4,
         "table_index": 1,
         "rows": 3,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-4-table-1.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-4-table-1.csv",
         "data": [
           [
             "",
@@ -295,7 +295,7 @@
         "page": 4,
         "table_index": 2,
         "rows": 3,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-4-table-2.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-4-table-2.csv",
         "data": [
           [
             "",
@@ -318,7 +318,7 @@
         "page": 5,
         "table_index": 1,
         "rows": 4,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-5-table-1.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-5-table-1.csv",
         "data": [
           [
             "BYPASS BYPASS",
@@ -354,7 +354,7 @@
         "page": 5,
         "table_index": 2,
         "rows": 2,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-5-table-2.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-5-table-2.csv",
         "data": [
           [
             "AP SY SB AP SY SB",
@@ -376,7 +376,7 @@
         "page": 8,
         "table_index": 1,
         "rows": 12,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-8-table-1.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-8-table-1.csv",
         "data": [
           [
             "Table 1 – Suggested Salt Dial Settings (Pounds of Salt) For Various\nSize Softeners",
@@ -504,7 +504,7 @@
         "page": 14,
         "table_index": 1,
         "rows": 14,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-14-table-1.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-14-table-1.csv",
         "data": [
           [
             "Problem",
@@ -582,7 +582,7 @@
         "page": 15,
         "table_index": 1,
         "rows": 14,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-15-table-1.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-15-table-1.csv",
         "data": [
           [
             "Problem",
@@ -660,7 +660,7 @@
         "page": 15,
         "table_index": 2,
         "rows": 11,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-15-table-2.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-15-table-2.csv",
         "data": [
           [
             "Problem",
@@ -723,7 +723,7 @@
         "page": 16,
         "table_index": 1,
         "rows": 3,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-16-table-1.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-16-table-1.csv",
         "data": [
           [
             "Soft Water\nAir Check\n1\nInlet\n4 2\nOutlet 3 6 6\n5\nDrain Control\nDrain\nlve No.\nClosed\nClosed\nOpen\nOpen\nClosed",
@@ -746,7 +746,7 @@
         "page": 16,
         "table_index": 2,
         "rows": 3,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-16-table-2.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-16-table-2.csv",
         "data": [
           [
             "Soft Water Air Check\n1\nInlet\n2\n4\nOutlet 3\n5 6 6\nDrain Control\nDrain\nlve No.\nClosed\nOpen\nOpen\nClosed\nClosed",
@@ -769,7 +769,7 @@
         "page": 16,
         "table_index": 3,
         "rows": 3,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-16-table-3.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-16-table-3.csv",
         "data": [
           [
             "Soft Water\nAir Check\n1\nInlet\n2\n4\nOutlet 3 5\n6 6\nDrain Control\nDrain\nlve No.\nOpen\nClosed\nClosed\nOpen\nOpen",
@@ -792,7 +792,7 @@
         "page": 16,
         "table_index": 4,
         "rows": 3,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-16-table-4.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-16-table-4.csv",
         "data": [
           [
             "Soft Water\nAir Check\n1\nInlet\n4 2\nOutlet 3 5\n6 6\nDrain Control\nDrain\nlve No.\nOpen\nClosed\nClosed\nOpen\nOpen",
@@ -815,7 +815,7 @@
         "page": 17,
         "table_index": 1,
         "rows": 3,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-17-table-1.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-17-table-1.csv",
         "data": [
           [
             "Soft Water\nAir Check\n1\nInlet\n2\n4\nOutlet 3\n5 6 6\nDrain Control\nDrain\nlve No.\nClosed\nClosed\nClosed\nOpen\nClosed",
@@ -838,7 +838,7 @@
         "page": 17,
         "table_index": 2,
         "rows": 3,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-17-table-2.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-17-table-2.csv",
         "data": [
           [
             "Soft Water Air Check\n1\nInlet\n2\n4\nOutlet 3 5\n6 6\nDrain Control\nDrain\nlve No.\nClosed\nOpen\nClosed\nOpen\nOpen",
@@ -861,7 +861,7 @@
         "page": 17,
         "table_index": 3,
         "rows": 3,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-17-table-3.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-17-table-3.csv",
         "data": [
           [
             "Soft Water Air Check\n1\nInlet\n2\n4\nOutlet 3\n5 6 6\nDrain Control\nDrain\nlve No.\nOpen\nOpen\nOpen\nClosed\nClosed",
@@ -884,7 +884,7 @@
         "page": 17,
         "table_index": 4,
         "rows": 8,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-17-table-4.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-17-table-4.csv",
         "data": [
           [
             "16\n14\n12\n10\n8\n6\n4\n2\n0",
@@ -980,7 +980,7 @@
         "page": 18,
         "table_index": 1,
         "rows": 7,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-18-table-1.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-18-table-1.csv",
         "data": [
           [
             "",
@@ -1044,7 +1044,7 @@
         "page": 18,
         "table_index": 2,
         "rows": 4,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-18-table-2.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-18-table-2.csv",
         "data": [
           [
             "",
@@ -1084,7 +1084,7 @@
         "page": 18,
         "table_index": 3,
         "rows": 5,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-18-table-3.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-18-table-3.csv",
         "data": [
           [
             "",
@@ -1132,7 +1132,7 @@
         "page": 18,
         "table_index": 4,
         "rows": 6,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-18-table-4.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-18-table-4.csv",
         "data": [
           [
             "",
@@ -1188,7 +1188,7 @@
         "page": 18,
         "table_index": 5,
         "rows": 7,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-18-table-5.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-18-table-5.csv",
         "data": [
           [
             "",
@@ -1252,7 +1252,7 @@
         "page": 18,
         "table_index": 6,
         "rows": 6,
-        "csv_file": "knowledge_ai/testpdf/255-提取结果/datasheet/page-18-table-6.csv",
+        "csv_file": "/Users/mac/Desktop/langchian1.0知识库ai/knowledge_ai/testpdf/255-提取结果/datasheet/page-18-table-6.csv",
         "data": [
           [
             "",

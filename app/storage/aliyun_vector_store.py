@@ -19,6 +19,7 @@
 import logging
 import uuid
 import hashlib
+import json
 import threading
 from datetime import datetime
 from typing import List, Dict, Any, Optional, Tuple
@@ -252,11 +253,33 @@ class AliyunVectorStore(VectorStore):
             ids.append(unique_id)
 
             # 构建单条向量行: key + data({float32: [...]}) + metadata
-            # 注意: metadata 值只支持 string 类型，总大小 <= 40KB
-            meta_dict = {"text": texts[i][:30000]}  # 截断防止超 40KB 限制
+            # 注意: filterable metadata 总大小 <= 2048 字节
+            # 策略: 先构建非 text 的元数据，计算剩余空间给 text
+            meta_dict = {}
             if metadatas[i]:
                 for mk, mv in metadatas[i].items():
                     meta_dict[mk] = str(mv) if not isinstance(mv, str) else mv
+
+            # 验证最终 metadata 大小不超过 2048 字节
+            # 用 json.dumps 测量真实编码大小 (含转义字符膨胀)
+            MAX_META_BYTES = 2000  # 留 48 字节余量
+
+            meta_dict["text"] = texts[i]
+            meta_size = len(json.dumps(meta_dict, ensure_ascii=False).encode("utf-8"))
+
+            if meta_size > MAX_META_BYTES:
+                # 按比例初估截断位置，然后二分微调
+                ratio = MAX_META_BYTES / max(meta_size, 1)
+                text_len = max(1, int(len(texts[i]) * ratio) - 50)
+                meta_dict["text"] = texts[i][:text_len]
+                meta_size = len(json.dumps(meta_dict, ensure_ascii=False).encode("utf-8"))
+
+                # 微调: 如果仍超出，逐步缩短
+                while meta_size > MAX_META_BYTES and text_len > 10:
+                    text_len = int(text_len * 0.85)
+                    meta_dict["text"] = texts[i][:text_len]
+                    meta_size = len(json.dumps(meta_dict, ensure_ascii=False).encode("utf-8"))
+
             row = {
                 "key": unique_id,
                 "data": {"float32": embeddings[i]},
