@@ -181,3 +181,111 @@ class VectorRetriever(Retriever):
                 "is_healthy": False,
                 "error": str(e)
             }
+
+    # ------------------------------------------------------------------
+    # 云向量 Bucket 检索
+    # ------------------------------------------------------------------
+
+    def retrieve_by_ids(
+        self,
+        ids: List[str],
+        return_data: bool = False
+    ) -> List[Dict[str, Any]]:
+        """
+        根据向量 ID 从云端向量存储精确检索
+
+        底层调用 VectorStore.get_by_ids，适用于:
+            - 已知文档 ID，查询原文内容
+            - 搜索结果的详情回查
+            - 数据校验与导出
+
+        参数:
+            ids: 向量 key 列表 (add_embeddings 返回的 ID)
+            return_data: 是否同时返回向量数据 (默认 False，节省带宽)
+
+        返回:
+            List[Dict]: 每条记录包含 key / data / metadata 字段
+
+        抛出:
+            NotImplementedError: 若当前向量存储后端不支持
+        """
+        if not ids:
+            return []
+
+        try:
+            results = self.vector_store.get_by_ids(
+                ids, return_data=return_data, return_metadata=True
+            )
+            logger.info(f"按 ID 检索完成: 请求 {len(ids)} 个, 返回 {len(results)} 个")
+            return results
+        except NotImplementedError:
+            logger.warning("当前向量存储后端不支持 get_by_ids")
+            raise
+        except Exception as e:
+            logger.error(f"按 ID 检索失败: {str(e)}", exc_info=True)
+            raise
+
+    def list_cloud_vectors(
+        self,
+        max_results: int = 100,
+        next_token: Optional[str] = None,
+        return_data: bool = False
+    ) -> Tuple[List[Dict[str, Any]], Optional[str]]:
+        """
+        分页列举云端向量存储中的向量数据
+
+        底层调用 VectorStore.list_vectors，适用于:
+            - 管理面板分页浏览
+            - 数据增量同步与导出
+            - 统计与审计
+
+        参数:
+            max_results: 单页数量上限 (1-1000)
+            next_token: 分页令牌，首页传 None
+            return_data: 是否返回向量数据 (默认 False)
+
+        返回:
+            Tuple[List[Dict], Optional[str]]: (向量列表, 下一页令牌)
+
+        抛出:
+            NotImplementedError: 若当前向量存储后端不支持
+        """
+        try:
+            vectors, token = self.vector_store.list_vectors(
+                max_results=max_results,
+                next_token=next_token,
+                return_data=return_data,
+                return_metadata=True,
+            )
+            logger.debug(
+                f"列举云端向量: 本页 {len(vectors)} 条, "
+                f"{'有下一页' if token else '已到末页'}"
+            )
+            return vectors, token
+        except NotImplementedError:
+            logger.warning("当前向量存储后端不支持 list_vectors")
+            raise
+        except Exception as e:
+            logger.error(f"列举云端向量失败: {str(e)}", exc_info=True)
+            raise
+
+    def retrieve_texts_by_ids(
+        self, ids: List[str]
+    ) -> List[Tuple[str, str, Dict[str, Any]]]:
+        """
+        便捷方法: 根据向量 ID 获取文本和元数据 (不含向量数据)
+
+        参数:
+            ids: 向量 key 列表
+
+        返回:
+            List[Tuple[str, str, Dict]]: (key, text, metadata) 列表
+        """
+        records = self.retrieve_by_ids(ids, return_data=False)
+        results = []
+        for rec in records:
+            key = rec.get("key", "")
+            metadata = rec.get("metadata", {})
+            text = metadata.pop("text", "")
+            results.append((key, text, metadata))
+        return results

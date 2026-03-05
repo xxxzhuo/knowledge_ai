@@ -52,6 +52,37 @@ def main():
     for dist, text, meta in results:
         print(f"     dist={dist:.4f} text={text[:40]}... meta={meta}")
 
+    # 5b. get_by_ids (云端精确检索)
+    print(f"5b. get_by_ids({ids[:2]})...")
+    records = store.get_by_ids(ids[:2], return_data=False, return_metadata=True)
+    print(f"   returned {len(records)} records:")
+    for rec in records:
+        key = rec.get("key", "?")
+        meta = rec.get("metadata", {})
+        txt = meta.get("text", "")[:40]
+        print(f"     key={key} text={txt}... brand={meta.get('brand','')}")
+    assert len(records) == 2, f"Expected 2 records, got {len(records)}"
+
+    # 5c. list_vectors (分页列举)
+    print("5c. list_vectors(max_results=2)...")
+    page_vecs, next_token = store.list_vectors(max_results=2, return_metadata=True)
+    print(f"   page1: {len(page_vecs)} vectors, next_token={'Yes' if next_token else 'None'}")
+    for v in page_vecs:
+        k = v.get("key", "?")
+        m = v.get("metadata", {})
+        print(f"     key={k} brand={m.get('brand','')}")
+    if next_token:
+        page2, token2 = store.list_vectors(max_results=10, next_token=next_token, return_metadata=True)
+        print(f"   page2: {len(page2)} vectors, next_token={'Yes' if token2 else 'None'}")
+
+    # 5d. get_texts_by_ids (便捷方法)
+    print(f"5d. get_texts_by_ids({ids[1:]})...")
+    text_results = store.get_texts_by_ids(ids[1:])
+    print(f"   returned {len(text_results)} records:")
+    for key, text, meta in text_results:
+        print(f"     key={key} text={text[:40]}... meta={meta}")
+    assert len(text_results) == 2, f"Expected 2, got {len(text_results)}"
+
     # 6. Delete one vector
     print(f"6. Delete vector {ids[2]}...")
     ok = store.delete([ids[2]])

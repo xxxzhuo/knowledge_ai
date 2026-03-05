@@ -488,6 +488,142 @@ class AliyunVectorStore(VectorStore):
             return False
 
     # ------------------------------------------------------------------
+    # 云向量 Bucket 检索 (get_by_ids / list_vectors)
+    # ------------------------------------------------------------------
+
+    def get_by_ids(
+        self,
+        ids: List[str],
+        return_data: bool = False,
+        return_metadata: bool = True
+    ) -> List[Dict[str, Any]]:
+        """
+        根据向量 key 从阿里云 OSS 向量索引精确检索
+
+        调用 SDK get_vectors，可一次获取最多 100 个向量的 data + metadata。
+        适用于: 知道文档 ID 后反查原文、批量导出、数据校验等场景。
+
+        参数:
+            ids: 向量 key 列表 (对应 add_embeddings 返回的 ID)
+            return_data: 是否返回 float32 向量数据 (默认 False，节省带宽)
+            return_metadata: 是否返回元数据 (默认 True)
+
+        返回:
+            List[Dict]: 每条记录包含:
+                - key (str): 向量唯一标识
+                - data (dict|None): {"float32": [...]} 或 None
+                - metadata (dict|None): 包含 text 和自定义字段
+        """
+        if not ids:
+            return []
+
+        import alibabacloud_oss_v2.vectors as oss_vectors
+
+        try:
+            self._ensure_index()
+            client = self._get_vector_client()
+
+            all_results: List[Dict[str, Any]] = []
+
+            # SDK 单次最多 100 条，分批处理
+            batch_size = min(self.batch_size, 100)
+            for batch_start in range(0, len(ids), batch_size):
+                batch_keys = ids[batch_start:batch_start + batch_size]
+
+                result = client.get_vectors(oss_vectors.models.GetVectorsRequest(
+                    bucket=self._bucket_name,
+                    index_name=self.collection_name,
+                    keys=batch_keys,
+                    return_data=return_data,
+                    return_metadata=return_metadata,
+                ))
+
+                if result.vectors:
+                    all_results.extend(result.vectors)
+
+            logger.info(
+                f"按 ID 检索完成: 请求 {len(ids)} 个, 返回 {len(all_results)} 个"
+            )
+            return all_results
+
+        except Exception as e:
+            logger.error(f"按 ID 检索失败: {str(e)}")
+            raise
+
+    def list_vectors(
+        self,
+        max_results: int = 100,
+        next_token: Optional[str] = None,
+        return_data: bool = False,
+        return_metadata: bool = True
+    ) -> Tuple[List[Dict[str, Any]], Optional[str]]:
+        """
+        分页列举阿里云 OSS 向量索引中的向量数据
+
+        调用 SDK list_vectors，支持游标分页，单页最多 1000 条。
+        适用于: 数据导出、增量同步、管理面板展示等场景。
+
+        参数:
+            max_results: 单页返回数量上限 (1-1000, 默认 100)
+            next_token: 上一页返回的分页令牌，首页传 None
+            return_data: 是否返回 float32 向量数据 (默认 False)
+            return_metadata: 是否返回元数据 (默认 True)
+
+        返回:
+            Tuple[List[Dict], Optional[str]]:
+                - vectors: 向量记录列表 (key / data / metadata)
+                - next_token: 下一页令牌，None 表示已到末页
+        """
+        max_results = max(1, min(max_results, 1000))
+
+        import alibabacloud_oss_v2.vectors as oss_vectors
+
+        try:
+            self._ensure_index()
+            client = self._get_vector_client()
+
+            result = client.list_vectors(oss_vectors.models.ListVectorsRequest(
+                bucket=self._bucket_name,
+                index_name=self.collection_name,
+                max_results=max_results,
+                next_token=next_token,
+                return_data=return_data,
+                return_metadata=return_metadata,
+            ))
+
+            vectors = result.vectors or []
+            token = result.next_token
+
+            logger.debug(
+                f"列举向量: 本页 {len(vectors)} 条, "
+                f"{'有下一页' if token else '已到末页'}"
+            )
+            return vectors, token
+
+        except Exception as e:
+            logger.error(f"列举向量失败: {str(e)}")
+            raise
+
+    def get_texts_by_ids(self, ids: List[str]) -> List[Tuple[str, str, Dict[str, Any]]]:
+        """
+        便捷方法: 根据向量 ID 获取对应文本和元数据
+
+        参数:
+            ids: 向量 key 列表
+
+        返回:
+            List[Tuple[str, str, Dict]]: (key, text, metadata) 列表
+        """
+        records = self.get_by_ids(ids, return_data=False, return_metadata=True)
+        results = []
+        for rec in records:
+            key = rec.get("key", "")
+            metadata = rec.get("metadata", {})
+            text = metadata.pop("text", "")
+            results.append((key, text, metadata))
+        return results
+
+    # ------------------------------------------------------------------
     # 辅助方法
     # ------------------------------------------------------------------
 
